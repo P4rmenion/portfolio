@@ -1,0 +1,83 @@
+@import '/app/styles/commons.scss';
+
+.splash {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .intro {
+        width: fit-content;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        font-weight: 200;
+
+        @media only screen and (min-width: 1024px) {
+            gap: 60px;
+        }
+
+        .statement {
+            font-size: 25px;
+            display: block;
+            width: 100%;
+
+            @media only screen and (min-width: 1024px) {
+                font-size: 40px;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: fit-content;
+
+            &>span:first-of-type {
+                font-size: 25px;
+
+                @media only screen and (min-width: 1024px) {
+                    font-size: 40px;
+                }
+            }
+
+            span {
+                font-size: 15px;
+
+                @media only screen and (min-width: 1024px) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .exit {
+            text-align: end;
+            font-size: 12px;
+            margin-left: auto;
+
+            @media only screen and (min-width: 1024px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .welcome {
+        font-size: 40px;
+        color: white;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

@@ -1,0 +1,51 @@
+@import '/app/styles/commons.scss';
+
+.menu {
+    width: fit-content;
+
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 20px;
+    color: white;
+
+    box-shadow: 0 currentColor;
+    border-right: 1px solid transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    &.side_line {
+        transition: all 0.3s ease-in-out;
+        border-color: #969696;
+
+        &:hover {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 1px 0 currentColor;
+        }
+    }
+
+    span {
+        font-weight: 100;
+        font-size: 40px;
+        text-transform: uppercase;
+        display: block;
+
+        transform: scale(1);
+        text-shadow: 0;
+
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+
+            text-shadow:
+                -0.5px -0.5px 0 currentColor,
+                0.5px -0.5px 0 currentColor,
+                -0.5px 0.5px 0 currentColor,
+                0.5px 0.5px 0 currentColor;
+        }
+    }
+}

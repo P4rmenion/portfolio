@@ -1,0 +1,107 @@
+@import '/app/styles/commons.scss';
+
+.cv {
+    width: 400px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 50px;
+    background-color: black;
+    border-right: 1px solid #969696;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+
+    /* Internet Explorer 10+ */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* Safari and Chrome */
+    &::-webkit-scrollbar {
+        display: none;
+    }    
+
+    .bio {
+        direction: ltr;
+
+        padding-block: 20px;
+        font-weight: 500;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .quote {
+            font-weight: 300;
+            font-size: 20px;
+            font-style: italic;
+            quotes: "“" "”";
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #ffffff5b;
+            padding-top: 20px;
+
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 1;
+
+            .links {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                img {
+                    transition: all .2s ease-in-out;
+
+
+                    &:hover {
+                        transform: scale(1.3);
+                        transition: all .2s ease-in-out;
+                    }
+                }
+            }
+        }
+
+        .outro {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border-top: 1px solid #ffffff5b;
+            padding-top: 20px;
+
+            span {
+                font-weight: 300;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .technologies {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                flex-wrap: wrap;
+
+                img {
+                    filter: grayscale(100%);
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        filter: grayscale(0);
+                        transform: scale3d(1.5, 1.5, 1.5);
+                        transition: filter .3s ease-in-out, transform .4s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}

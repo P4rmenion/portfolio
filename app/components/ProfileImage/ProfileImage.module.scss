@@ -1,0 +1,64 @@
+@import '/app/styles/commons.scss';
+
+.image_container {
+    width: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid #ffffff;
+    overflow: hidden;
+
+    .image_link {
+        position: relative;
+
+        img {
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: top - 50px;
+            filter: grayscale(100%);
+
+            transition: all 0.2s ease-in-out;
+            background-color: transparent;
+
+            border-radius: 9999px;
+            border: 2px solid #ffffff;
+        }
+    }
+
+    .image_overlay {
+        display: block;
+        width: 100%;
+        padding-block: 20px;
+
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+
+        opacity: 0;
+        height: 0;
+        transform: translateY(50px);
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    &:hover {
+        .image_link {
+            img {
+                transition: all 0.2s ease-out;
+                border: 8px solid #ffffff;
+                filter: grayscale(0%);
+            }
+        }
+
+        .image_overlay {
+            opacity: 1;
+            transform: translateY(0);
+            height: 100px;
+
+            transition: all 0.4s ease-out;
+        }
+    }
+}
