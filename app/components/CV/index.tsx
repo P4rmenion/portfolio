@@ -19,7 +19,7 @@ const CV = () => {
                             Residing in <strong>Thessaloniki, Greece</strong>.
                         </span>
                         <div className={css.links}>
-                            <span> Reach out at</span>
+                            <span>Reach me</span>
                             <Link
                                 href={'https://www.linkedin.com/in/parmenion-charistos'}
                                 target="_blank"
@@ -59,7 +59,7 @@ const CV = () => {
                     </div>
 
                     <div className={css.outro}>
-                        <span>A dev is only as good as their tools</span>
+                        <span>A dev is only as good as their tools,</span>
                         <div className={css.technologies}>
                             <Link
                                 href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}

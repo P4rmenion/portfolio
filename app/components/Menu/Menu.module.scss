@@ -7,7 +7,9 @@
     margin-top: 40px;
     padding: 20px;
     color: white;
-
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(2px);
+    
     box-shadow: 0 currentColor;
     border-right: 1px solid transparent;
 
@@ -27,7 +29,7 @@
     }
 
     span {
-        font-weight: 100;
+        font-weight: 200;
         font-size: 40px;
         text-transform: uppercase;
         display: block;

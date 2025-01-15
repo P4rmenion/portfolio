@@ -52,7 +52,7 @@
             span {
                 display: block;
 
-                font-weight: 100;
+                font-weight: 200;
                 font-size: 40px;
                 line-height: 1;
                 text-transform: uppercase;
@@ -74,16 +74,105 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-evenly;
-        gap: 200px;
+        gap: 100px;
 
-        padding-inline: 10vw;
+        padding-inline: 15vw;
+        padding-block: 20vh;
+
+        &.visible {
+            opacity: 1;
+            transition: all .3s ease-in-out;
+        }
 
         section {
+            width: 100%;
             color: white;
 
-            h2 {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            .section_title {
+                width: 100%;
+
                 font-weight: 200;
-                font-size: 40px;
+                font-size: 60px;
+
+                text-transform: uppercase;
+                border-bottom: 1px solid #969696;
+            }
+
+            .entry {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                &_header {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    .employer {
+                        display: flex;
+                        align-items: center;
+
+                        &:hover {
+                            a {
+                                img {
+                                    animation: rotate360 1.2s linear forwards;
+                                }
+                            }
+
+                            span {}
+                        }
+                    }
+
+                    .separator {
+                        width: 20px;
+                        height: 1px;
+                        background-color: #ffffff;
+                    }
+
+                    .job_title {
+                        font-size: 40px;
+                        font-weight: 300;
+                    }
+                }
+
+                .details {
+                    display: flex;
+                    align-items: center;
+                    gap: 40px;
+
+                    .time_period,
+                    .location {
+                        display: flex;
+                        gap: 10px;
+
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+
+                    .location {}
+                }
+
+                .description {
+                    max-width: 60vw;
+
+                    font-size: 20px;
+                    font-weight: 300;
+
+                    ul {
+                        list-style-position: inside;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        li {
+
+                        }
+                    }
+                }
             }
         }
     }
@@ -94,5 +183,15 @@
         top: 0;
 
         flex-shrink: 0;
+    }
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: perspective(300px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(300px) rotateY(360deg);
     }
 }

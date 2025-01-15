@@ -43,16 +43,16 @@ const Splash = () => {
                     I am
                 </span>
                 <div className={css.info}>
-                    <span ref={textTwo} className={css.fade_in}>
-                        <strong>Parmenion</strong> Charistos
+                    <span ref={textTwo} className={`${css.full_name} ${css.fade_in}`}>
+                        Parmenion Charistos
                     </span>
-                    <span ref={textThree} className={css.fade_in}>
+                    <span ref={textThree} className={`${css.profession} ${css.fade_in}`}>
                         a web developer
+                        <span ref={textFour} className={`${css.exit} ${css.fade_in}`}>
+                            , with a soft spot for visual effects
+                        </span>
                     </span>
                 </div>
-                <span ref={textFour} className={`${css.exit} ${css.fade_in}`}>
-                    ..or perhaps <strong>more</strong>
-                </span>
             </div>
 
             <span ref={textFive} className={`${css.welcome} ${css.fade_in}`}>
