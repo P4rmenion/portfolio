@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react'
 import Splash from '@/components/Splash'
 import Menu from '@/components/Menu'
 import CV from '@/components/CV'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { breakpoints } from './scripts/commons'
 import { josefin_sans } from './fonts'
 import css from './page.module.scss'
 
@@ -17,6 +19,7 @@ export default function Home() {
     const [showMenuSideline, setShowMenuSideline] = useState(false)
     const [showSidebarHandle, setShowSidebarHandle] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
+    const [showNavigation, setShowNavigation] = useState(breakpoints.isDesktop())
     const [showMain, setShowMain] = useState(false)
 
     useEffect(() => {
@@ -58,6 +61,18 @@ export default function Home() {
     return (
         (showSplashScreen && <Splash />) || (
             <div className={css.landing}>
+                <button
+                    className={css.sidebar_open_button}
+                    onClick={() => setShowSidebar(!showSidebar)}
+                >
+                    <Image
+                        src="/icons/general/info.svg"
+                        alt="Open Info Icon"
+                        width={50}
+                        height={50}
+                    />
+                </button>
+
                 <div
                     className={`${css.sidebar} ${!showSidebar && css.hidden}`}
                     onMouseOver={() => setShowSidebar(true)}
@@ -65,14 +80,29 @@ export default function Home() {
                 >
                     <CV />
                     <div
-                        className={`${css.sidebar_handle} ${css.fade_in} ${
-                            showSidebarHandle && css.visible
+                        className={`${css.sidebar_handle} ${css.invisible} ${
+                            showSidebarHandle && css.fade_in
                         }`}
                     >
                         <span>INFORMATION</span>
                     </div>
+                    <button
+                        className={css.sidebar_close_button}
+                        onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                        <Image
+                            src="/icons/general/close.svg"
+                            alt="Close Button Icon"
+                            width={40}
+                            height={40}
+                        />
+                    </button>
                 </div>
-                <main className={`${css.main} ${css.fade_in} ${showMain && css.visible}`}>
+                <main
+                    className={`${css.main} ${css.invisible} ${showMain && css.fade_in} ${
+                        showMain && showSidebar && css.blur
+                    }`}
+                >
                     <section id="experience" className={css.experience}>
                         <h2 className={css.section_title}>Experience</h2>
                         <div className={`${css.entry} ${josefin_sans.className}`}>
@@ -87,7 +117,7 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>Web Developer</span>
                             </div>
 
@@ -116,12 +146,12 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
+                                        Developed complete web UIs for internal activities (Deloitte
+                                        Digital) and external clients.
                                     </li>
                                     <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
+                                        Built web pages in NextJS, integrated with client&apos;s
+                                        mobile application.
                                     </li>
                                     <li>
                                         Implemented services within NextJS server components to
@@ -149,7 +179,7 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>BSc in Computer Science</span>
                             </div>
 
@@ -178,12 +208,12 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
+                                        Studied fundamentals of computer science across most
+                                        disciplines.
                                     </li>
                                     <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
+                                        Majored in <strong>Artificial Intelligence</strong>, as well
+                                        as <strong>Web & Data Management</strong>.
                                     </li>
                                 </ul>
                             </div>
@@ -204,7 +234,7 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>Erasmus+ Exchange Semester</span>
                             </div>
 
@@ -233,12 +263,12 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
+                                        Attended courses with emphasis in web and mobile
+                                        development.
                                     </li>
                                     <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
+                                        Collaborated in team development projects in a multicultural
+                                        environment.
                                     </li>
                                 </ul>
                             </div>
@@ -258,7 +288,7 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>Tech Support</span>
                             </div>
 
@@ -287,12 +317,7 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
-                                    </li>
-                                    <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
+                                        Managed the technical side of large scale zoom sessions.
                                     </li>
                                 </ul>
                             </div>
@@ -310,7 +335,7 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>Computers Class Teacher</span>
                             </div>
 
@@ -339,12 +364,8 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
-                                    </li>
-                                    <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
+                                        Taught basic computer tools and fundamental programming
+                                        principles to children refugees.
                                     </li>
                                 </ul>
                             </div>
@@ -362,9 +383,9 @@ export default function Home() {
                                         />
                                     </Link>
                                 </div>
-                                <div className={css.separator}></div>
+                                <div className={css.dash}></div>
                                 <span className={css.job_title}>
-                                    Outgoing Global Volunteer (OGV) Manager
+                                    Outgoing Global Volunteer (OGV)
                                 </span>
                             </div>
 
@@ -393,27 +414,39 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Developed complete web UIs for Enel Energia&apos;s latest
-                                        campaigns.
+                                        Demonstrated the organization’s volunteering programs to
+                                        university students.
                                     </li>
-                                    <li>
-                                        Built web pages in NextJS, integrated with the Enel Energia
-                                        mobile app.
-                                    </li>
+                                    <li>Monitored their subsequent programs abroad.</li>
                                 </ul>
                             </div>
                         </div>
                     </section>
-                    <section id="hobbies" className={css.hobbies}>
-                        <h2 className={css.section_title}>Hobbies</h2>
-                        <div className={css.entry}>
-                            <span className={css.time_period}>2022 - Present</span>
-                        </div>
-                    </section>
                 </main>
-                <div className={css.navigation}>
-                    <Menu visible={showMenu} sideline={showMenuSideline} />
+                <div className={`${css.navigation} ${!showNavigation && css.hidden}`}>
+                    <Menu
+                        fade_in={showMenu}
+                        sideline={showMenuSideline}
+                        showNavigation={setShowNavigation}
+                    />
+                    <button
+                        className={css.navigation_close_button}
+                        onClick={() => setShowNavigation(!showNavigation)}
+                    >
+                        <Image
+                            src="/icons/general/close.svg"
+                            alt="Close Button Icon"
+                            width={40}
+                            height={40}
+                        />
+                    </button>
                 </div>
+                <button
+                    className={`${css.navigation_open_button} ${showNavigation && css.hidden}`}
+                    onClick={() => setShowNavigation(true)}
+                >
+                    <Image src="/icons/general/map.svg" alt="Map Icon" width={50} height={50} />
+                </button>
             </div>
         )
     )

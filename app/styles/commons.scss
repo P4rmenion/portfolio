@@ -1,13 +1,17 @@
-.visible {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+@use 'mixins/transitions';
+
+.fade_in {
+    @include transitions.fade_in();
 }
 
-.fade_in:not(.visible) {
+.invisible:not(.fade_in) {
     opacity: 0;
 }
 
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+.fade_out {
+    @include transitions.fade_out();
+}
+
+.blur {
+    filter: blur(8px);
 }

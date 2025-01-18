@@ -1,31 +1,30 @@
 import css from './Menu.module.scss'
 import { forwardRef } from 'react'
 
-const Menu = forwardRef<HTMLDivElement, { visible: boolean; sideline: boolean }>(
-    ({ visible = true, sideline = true }, ref) => {
-        return (
-            <div
-                ref={ref}
-                className={`${css.menu} ${css.fade_in} ${visible && css.visible} ${
-                    sideline && css.side_line
-                }`}
-            >
-                <a href="#experience">
-                    <span>Experience</span>
-                </a>
-                <a href="#education">
-                    <span>Education</span>
-                </a>
-                <a href="#volunteering">
-                    <span>Volunteering</span>
-                </a>
-                <a href="#hobbies">
-                    <span>Hobbies</span>
-                </a>
-            </div>
-        )
-    },
-)
+const Menu = forwardRef<
+    HTMLDivElement,
+    { fade_in: boolean; sideline: boolean; showNavigation: (show: boolean) => void }
+>(({ fade_in = true, sideline = true, showNavigation }, ref) => {
+    return (
+        <div
+            ref={ref}
+            className={`${css.menu} ${css.invisible} ${fade_in && css.fade_in} ${
+                sideline && css.side_line
+            }`}
+        >
+            <span className={css.menu_title}>Navigate to</span>
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#experience">
+                <span>Experience</span>
+            </a>
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#education">
+                <span>Education</span>
+            </a>
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#volunteering">
+                <span>Volunteering</span>
+            </a>
+        </div>
+    )
+})
 
 Menu.displayName = 'Menu'
 

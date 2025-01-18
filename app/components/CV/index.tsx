@@ -30,6 +30,9 @@ const CV = () => {
                                     height={30}
                                     alt="LinkedIn Icon"
                                 />
+                                <span className={css.link_text}>
+                                    parmenion-charistos
+                                </span>
                             </Link>
                             <Link href={'https://github.com/P4rmenion'} target="_blank">
                                 <Image
@@ -38,6 +41,7 @@ const CV = () => {
                                     height={30}
                                     alt="Github Icon"
                                 />
+                                <span className={css.link_text}>P4rmenion</span>
                             </Link>
                             <Link href={'mailto:parmenion.char@gmail.com'} target="_blank">
                                 <Image
@@ -46,6 +50,7 @@ const CV = () => {
                                     height={30}
                                     alt="Email Icon"
                                 />
+                                <span className={css.link_text}>parmenion.char@gmail.com</span>
                             </Link>
                             <Link href={'tel:+306972742397'} target="_blank">
                                 <Image
@@ -54,12 +59,13 @@ const CV = () => {
                                     height={30}
                                     alt="Phone Icon"
                                 />
+                                <span className={css.link_text}>+306972742397</span>
                             </Link>
                         </div>
                     </div>
 
                     <div className={css.outro}>
-                        <span>A dev is only as good as their tools,</span>
+                        <span>A dev is only as good as their tech</span>
                         <div className={css.technologies}>
                             <Link
                                 href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}

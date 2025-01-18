@@ -1,53 +1,99 @@
-@import '/app/styles/commons.scss';
+@use '@styles/utils';
 
 .menu {
-    width: fit-content;
+    @include utils.tablet() {
+        width: fit-content;
+        height: 100vh;
 
-    margin-right: 40px;
-    margin-top: 40px;
-    padding: 20px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(2px);
-    
-    box-shadow: 0 currentColor;
-    border-right: 1px solid transparent;
+        padding-inline: 40px;
+        padding-block: 80px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
+        border-left: 2px dashed white;
 
-    &.side_line {
-        transition: all 0.3s ease-in-out;
-        border-color: #969696;
+        color: utils.$text-primary;
+        background-color: utils.$bg-transparent;
+        backdrop-filter: blur(4px);
 
-        &:hover {
-            transition: all 0.3s ease-in-out;
-            box-shadow: 1px 0 currentColor;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        &_title {
+            display: block;
+            width: 100%;
+
+            border-bottom: 2px solid utils.$separator-color;
+
+            font-size: 25px;
+            font-weight: 300;
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
         }
     }
 
-    span {
-        font-weight: 200;
-        font-size: 40px;
-        text-transform: uppercase;
-        display: block;
+    @include utils.desktop() {
+        width: fit-content;
 
-        transform: scale(1);
-        text-shadow: 0;
+        margin-right: 40px;
+        margin-top: 40px;
+        padding: 20px;
 
-        transition: all 0.3s ease-in-out;
+        box-shadow: 0 currentColor;
+        border-right: 1px solid utils.$border-color-transparent;
+        border-radius: 50px 0 0 50px;
 
-        &:hover {
-            transform: scale(1.1);
+        justify-content: center;
+
+        &.side_line {
+            transition: all 0.3s ease-in-out;
+            border-color: utils.$border-color;
+
+            &:hover {
+                transition: all 0.3s ease-in-out;
+                box-shadow: 1px 0 currentColor;
+            }
+        }
+
+        &_title {
+            display: none;
+        }
+    }
+
+    a>span {
+        @include utils.tablet() {
+            font-weight: 200;
+            font-size: 40px;
+            text-transform: uppercase;
+            display: block;
+
+            transform: scale(1);
+            text-shadow: 0;
+
+            transition: all 0.3s ease-in-out;
+        }
+
+        @include utils.desktop() {
+            font-weight: 200;
+            font-size: 40px;
+            text-transform: uppercase;
+            display: block;
+
+            transform: scale(1);
+            text-shadow: 0;
+
             transition: all 0.3s ease-in-out;
 
-            text-shadow:
-                -0.5px -0.5px 0 currentColor,
-                0.5px -0.5px 0 currentColor,
-                -0.5px 0.5px 0 currentColor,
-                0.5px 0.5px 0 currentColor;
+            &:hover {
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+
+                text-shadow:
+                    -0.5px -0.5px 0 currentColor,
+                    0.5px -0.5px 0 currentColor,
+                    -0.5px 0.5px 0 currentColor,
+                    0.5px 0.5px 0 currentColor;
+            }
         }
     }
 }

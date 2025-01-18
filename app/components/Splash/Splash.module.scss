@@ -1,4 +1,4 @@
-@import '/app/styles/commons.scss';
+@use '@styles/utils';
 
 .splash {
     position: fixed;
@@ -6,7 +6,7 @@
     width: 100vw;
 
     overflow: hidden;
-    background-color: black;
+    background-color: utils.$bg-primary;
 
     display: flex;
     align-items: center;
@@ -26,13 +26,13 @@
             width: max-content;
         }
 
-        @media only screen and (min-width: 1024px) {
+        @include utils.desktop() {
             font-size: 40px;
             gap: 1rem;
         }
 
         .statement {
-            @media only screen and (min-width: 1024px) {}
+            @include utils.desktop() {}
         }
 
         .info {
@@ -48,7 +48,7 @@
                 top: 100%;
 
                 .exit {
-                    @media only screen and (min-width: 1024px) {
+                    @include utils.desktop() {
                         position: absolute;
                         font-weight: 200;
 
@@ -63,7 +63,7 @@
     .welcome {
         font-size: 40px;
         font-weight: 200;
-        color: white;
+        color: utils.$text-primary;
 
         position: absolute;
         left: 50%;

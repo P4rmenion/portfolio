@@ -1,0 +1,59 @@
+@mixin fade_out($duration: 0.3s) {
+    transition: opacity $duration ease-in-out;
+    opacity: 0;
+}
+
+@mixin fade_in($duration: 0.3s) {
+    transition: opacity $duration ease-in-out;
+    opacity: 1;
+}
+
+@mixin float($depth: 10px) {
+    animation: float 2s ease-in-out infinite;
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-$depth);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+
+@mixin spin ($duration: 8s) {
+    animation: spin $duration ease-in-out infinite;
+
+    @keyframes spin {
+        50% {
+            transform: perspective(300px) rotateY(0deg);
+        }
+
+        60% {
+            transform: perspective(300px) rotateY(-60deg);
+        }
+
+        80% {
+            transform: perspective(300px) rotateY(420deg);
+        }
+
+        100% {
+            transform: perspective(300px) rotateY(360deg);
+        }
+    }
+}
+
+@mixin expand($scale: 1.1, $duration: 0.3s) {
+    transform: scale($scale);
+    transition: all $duration ease-in-out;
+}
+
+@mixin shrink($scale: 1, $duration: 0.3s) {
+    transform: scale($scale);
+    transition: all $duration ease-in-out;
+}
