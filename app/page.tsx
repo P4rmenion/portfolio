@@ -9,7 +9,7 @@ import CV from '@/components/CV'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { breakpoints } from './scripts/commons'
+import { useBreakpoints } from './scripts/commons'
 import { josefin_sans } from './fonts'
 import css from './page.module.scss'
 
@@ -19,7 +19,7 @@ export default function Home() {
     const [showMenuSideline, setShowMenuSideline] = useState(false)
     const [showSidebarHandle, setShowSidebarHandle] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
-    const [showNavigation, setShowNavigation] = useState(breakpoints.isDesktop())
+    const [showNavigation, setShowNavigation] = useState(useBreakpoints().isDesktop)
     const [showMain, setShowMain] = useState(false)
 
     useEffect(() => {
