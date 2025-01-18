@@ -34,6 +34,7 @@
 
     @include utils.desktop() {
         width: fit-content;
+        height: auto;
 
         margin-right: 40px;
         margin-top: 40px;
@@ -41,6 +42,7 @@
 
         box-shadow: 0 currentColor;
         border-right: 1px solid utils.$border-color-transparent;
+        border-left: none;
         border-radius: 50px 0 0 50px;
 
         justify-content: center;

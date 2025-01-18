@@ -292,32 +292,40 @@
         }
     }
 
-    .navigation_open_button {
-        &.hidden {
-            display: none;
+    @include utils.tablet() {
+        .navigation_open_button {
+            &.hidden {
+                display: none;
+            }
+
+            img {
+                @include utils.spin();
+            }
+
+            all: unset;
+
+            position: fixed;
+            right: 30px;
+            top: 30px;
         }
 
-        img {
-            @include utils.spin();
+        .navigation_close_button {
+            img {
+                @include utils.spin();
+            }
+
+            all: unset;
+
+            position: fixed;
+            right: 30px;
+            top: 30px;
         }
-
-        all: unset;
-
-        position: fixed;
-        right: 30px;
-        top: 30px;
     }
 
-    .navigation_close_button {
-        img {
-            @include utils.spin();
+    @include utils.desktop() {
+        .navigation_open_button, .navigation_close_button {
+            display: none;
         }
-
-        all: unset;
-
-        position: fixed;
-        right: 30px;
-        top: 30px;
     }
 }
 

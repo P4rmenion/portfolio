@@ -13,13 +13,13 @@ const Menu = forwardRef<
             }`}
         >
             <span className={css.menu_title}>Navigate to</span>
-            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#experience">
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 750)} href="#experience">
                 <span>Experience</span>
             </a>
-            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#education">
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 750)} href="#education">
                 <span>Education</span>
             </a>
-            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 1000)} href="#volunteering">
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 750)} href="#volunteering">
                 <span>Volunteering</span>
             </a>
         </div>

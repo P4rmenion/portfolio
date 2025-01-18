@@ -9,18 +9,26 @@ import CV from '@/components/CV'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { useBreakpoints } from './scripts/commons'
 import { josefin_sans } from './fonts'
 import css from './page.module.scss'
+import { useBreakpoints } from '@/scripts/commons'
 
 export default function Home() {
+    const device = useBreakpoints()
+
     const [showSplashScreen, setShowSplashScreen] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
     const [showMenuSideline, setShowMenuSideline] = useState(false)
     const [showSidebarHandle, setShowSidebarHandle] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
-    const [showNavigation, setShowNavigation] = useState(useBreakpoints().isDesktop)
+    const [showNavigation, setShowNavigation] = useState(false)
     const [showMain, setShowMain] = useState(false)
+
+    useEffect(() => {
+        if (device.isDesktop) {
+            setShowNavigation(true)
+        }
+    }, [device.isDesktop])
 
     useEffect(() => {
         const lastAccess = localStorage.getItem('lastVisit')
