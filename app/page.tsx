@@ -461,8 +461,8 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Demonstrated the organization's volunteering programs to
-                                        university students.
+                                        Demonstrated the organization&apos;s volunteering programs
+                                        to university students.
                                     </li>
                                     <li>Monitored their subsequent programs abroad.</li>
                                 </ul>
