@@ -28,22 +28,23 @@
 
 @mixin spin ($duration: 8s) {
     animation: spin $duration ease-in-out infinite;
+    z-index: 10;
 
     @keyframes spin {
         50% {
-            transform: perspective(300px) rotateY(0deg);
+            transform: perspective(100px) rotateY(0deg);
         }
 
         60% {
-            transform: perspective(300px) rotateY(-60deg);
+            transform: perspective(100px) rotateY(-60deg);
         }
 
         80% {
-            transform: perspective(300px) rotateY(420deg);
+            transform: perspective(100px) rotateY(420deg);
         }
 
         100% {
-            transform: perspective(300px) rotateY(360deg);
+            transform: perspective(100px) rotateY(360deg);
         }
     }
 }

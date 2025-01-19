@@ -67,7 +67,7 @@ export default function Home() {
     }, [])
 
     return (
-        (showSplashScreen && <Splash />) || (
+        (device.isDesktop && showSplashScreen && <Splash />) || (
             <div className={css.landing}>
                 <button
                     className={`${css.sidebar_open_button} ${showSidebar && css.hidden}`}
