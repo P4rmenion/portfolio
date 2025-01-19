@@ -3,12 +3,12 @@
 .menu {
     @include utils.tablet() {
         width: fit-content;
-        height: 100vh;
+        height: 100dvh;
 
         padding-inline: 40px;
         padding-block: 80px;
 
-        border-left: 2px dashed white;
+        border-left: 1px dashed white;
 
         color: utils.$text-primary;
         background-color: utils.$bg-transparent;

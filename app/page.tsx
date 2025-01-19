@@ -70,7 +70,7 @@ export default function Home() {
         (showSplashScreen && <Splash />) || (
             <div className={css.landing}>
                 <button
-                    className={css.sidebar_open_button}
+                    className={`${css.sidebar_open_button} ${showSidebar && css.hidden}`}
                     onClick={() => setShowSidebar(!showSidebar)}
                 >
                     <Image

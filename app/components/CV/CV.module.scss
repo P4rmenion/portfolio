@@ -1,9 +1,7 @@
 @use '@styles/utils';
 
-
 .cv {
     @include utils.tablet() {
-        width: 50vw;
         height: 100%;
 
         display: flex;
@@ -34,7 +32,6 @@
     }
 
     .bio {
-
         @include utils.tablet() {
             direction: ltr;
 
