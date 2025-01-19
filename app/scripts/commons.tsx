@@ -24,9 +24,9 @@ export const useBreakpoints = () => {
         window.addEventListener('resize', handleWindowResize)
 
         setDevice({
-            isMobile: windowSize.width < 768,
-            isTablet: windowSize.width > 767 && windowSize.width < 1024,
-            isDesktop: windowSize.width > 1023,
+            isMobile: windowSize.width < 770,
+            isTablet: windowSize.width >= 770 && windowSize.width < 1100,
+            isDesktop: windowSize.width >= 1100,
         })
     }, [windowSize.width])
 
