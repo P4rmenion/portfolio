@@ -30,6 +30,10 @@
 
             font-size: 20px;
             font-weight: 200;
+
+            &.hidden {
+                display: none;
+            }
         }
 
         .sidebar_close_button {
