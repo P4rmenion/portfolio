@@ -31,6 +31,18 @@ export default function Home() {
     }, [device.isDesktop])
 
     useEffect(() => {
+        if (showSidebar || (!device.isDesktop && showNavigation)) {
+            document.body.style.position = 'fixed'
+            document.body.style.height = '100%'
+            document.body.style.width = '100%'
+        } else {
+            document.body.style.position = ''
+            document.body.style.height = ''
+            document.body.style.width = ''
+        }
+    }, [showSidebar, showNavigation])
+
+    useEffect(() => {
         const lastAccess = localStorage.getItem('lastVisit')
             ? JSON.parse(localStorage.getItem('lastVisit')!)
             : null
@@ -64,6 +76,33 @@ export default function Home() {
         // Save the visit
         const lastVisit = { timestamp: new Date().getTime() }
         localStorage.setItem('lastVisit', JSON.stringify(lastVisit))
+    }, [])
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            const target = event.target as HTMLElement
+            const sidebar = document.querySelector(`.${css.sidebar}`)
+            const navigation = document.querySelector(`.${css.navigation}`)
+            const sidebarButton = document.querySelector(`.${css.sidebar_open_button}`)
+            const navigationButton = document.querySelector(`.${css.navigation_open_button}`)
+
+            if (sidebar && navigation && sidebarButton && navigationButton) {
+                const clickedOutsideSidebar = !sidebar.contains(target) && target !== sidebarButton
+                const clickedOutsideNavigation =
+                    !navigation.contains(target) && target !== navigationButton
+
+                if (clickedOutsideSidebar) setShowSidebar(false)
+                if (clickedOutsideNavigation) setShowNavigation(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('touchstart', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('touchstart', handleClickOutside)
+        }
     }, [])
 
     return (
@@ -422,7 +461,7 @@ export default function Home() {
                             <div className={css.description}>
                                 <ul>
                                     <li>
-                                        Demonstrated the organization’s volunteering programs to
+                                        Demonstrated the organization's volunteering programs to
                                         university students.
                                     </li>
                                     <li>Monitored their subsequent programs abroad.</li>
