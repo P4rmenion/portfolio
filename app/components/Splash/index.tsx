@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react'
 import css from './Splash.module.scss'
 
 const Splash = () => {
-    const splashTextContainer = useRef<HTMLDivElement>(null)
-
     // References to text elements
     const textFive = useRef<HTMLElement>(null)
 
