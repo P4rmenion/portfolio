@@ -179,7 +179,7 @@
                     width: 100%;
 
                     font-weight: 200;
-                    font-size: 60px;
+                    font-size: 50px;
 
                     text-transform: uppercase;
                     border-bottom: 1px solid utils.$border-color;
@@ -211,6 +211,8 @@
                     @include utils.tablet() {
                         flex-direction: row;
                         align-items: center;
+
+                        gap: 20px;
                     }
 
                     .employer {
@@ -234,6 +236,7 @@
                         display: none;
 
                         @include utils.tablet() {
+                            display: block;
                             width: 20px;
                             height: 2px;
 
@@ -246,12 +249,12 @@
                         font-size: 25px;
                         font-weight: 300;
 
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        overflow: hidden;
-
                         @include utils.tablet() {
                             font-size: 40px;
+
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
                         }
                     }
                 }
@@ -274,12 +277,24 @@
                         align-items: center;
                         gap: 10px;
 
-                        font-size: 16px;
-                        font-weight: 400;
+                        span {
+                            display: block;
+                            line-height: 1;
+
+                            font-size: 16px;
+                            font-weight: 400;
+                        }
+
+                        img {
+                            margin-bottom: 5px;
+                        }
+
 
                         @include utils.tablet() {
-                            font-size: 20px;
-                            font-weight: 500;
+                            span {
+                                font-size: 20px;
+                                font-weight: 500;
+                            }
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import Splash from '@/components/Splash'
 import Menu from '@/components/Menu'
@@ -17,8 +17,12 @@ export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
     const [showSidebarHandle, setShowSidebarHandle] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
-    const [showNavigation, setShowNavigation] = useState(false)
+    const [showNavigation, setShowNavigation] = useState(true)
     const [showMain, setShowMain] = useState(false)
+
+    // Add refs for the sidebar and navigation
+    const sidebarRef = useRef<HTMLDivElement>(null)
+    const navigationRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setShowNavigation(window.innerWidth > 1024)
@@ -56,6 +60,22 @@ export default function Home() {
         localStorage.setItem('lastVisit', JSON.stringify(lastVisit))
     }, [])
 
+    // Add click outside effect
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (window.innerWidth <= 1024) {
+                if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node))
+                    setShowSidebar(false)
+
+                if (navigationRef.current && !navigationRef.current.contains(event.target as Node))
+                    setShowNavigation(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
+
     return (
         (showSplashScreen && <Splash />) || (
             <div className={css.landing}>
@@ -72,6 +92,7 @@ export default function Home() {
                 </button>
 
                 <div
+                    ref={sidebarRef}
                     className={`${css.sidebar} ${!showSidebar && css.hidden}`}
                     onMouseOver={() => setShowSidebar(true)}
                     onMouseLeave={() => setShowSidebar(false)}
@@ -101,6 +122,68 @@ export default function Home() {
                         showMain && showSidebar && css.blur
                     }`}
                 >
+                    <section id="about" className={css.experience}>
+                        <h2 className={css.section_title}>About</h2>
+                        <div className={`${css.entry} ${josefin_sans.className}`}>
+                            <div className={css.entry_header}>
+                                <div className={css.employer}>
+                                    <Link href="https://www.deloitte.com" target="_blank">
+                                        <Image
+                                            src="/icons/companies/deloitte.svg"
+                                            alt="Deloitte Logo"
+                                            width={140}
+                                            height={50}
+                                        />
+                                    </Link>
+                                </div>
+                                <div className={css.dash}></div>
+                                <span className={css.job_title}>Frontend Engineer</span>
+                            </div>
+
+                            <div className={css.details}>
+                                <div className={css.time_period}>
+                                    <Image
+                                        src="/icons/general/calendar.svg"
+                                        alt="Calendar Icon"
+                                        width={20}
+                                        height={20}
+                                    />
+                                    <span>June 2022 - Today</span>
+                                </div>
+
+                                <div className={css.location}>
+                                    <Image
+                                        src="/icons/general/location.svg"
+                                        alt="Location Icon"
+                                        width={20}
+                                        height={20}
+                                    />
+                                    <span>Thessaloniki, Greece</span>
+                                </div>
+                            </div>
+
+                            <div className={css.description}>
+                                <ul>
+                                    <li>
+                                        Developed complete web UIs for internal activities (Deloitte
+                                        Digital) and external clients.
+                                    </li>
+                                    <li>
+                                        Built web pages in NextJS, integrated with client&apos;s
+                                        mobile application.
+                                    </li>
+                                    <li>
+                                        Implemented services within NextJS server components to
+                                        boost security and performance.
+                                    </li>
+                                    <li>
+                                        Collaborated within international teams to build atop
+                                        existing client infrastructure.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
                     <section id="experience" className={css.experience}>
                         <h2 className={css.section_title}>Experience</h2>
                         <div className={`${css.entry} ${josefin_sans.className}`}>
@@ -116,7 +199,7 @@ export default function Home() {
                                     </Link>
                                 </div>
                                 <div className={css.dash}></div>
-                                <span className={css.job_title}>Web Developer</span>
+                                <span className={css.job_title}>Frontend Engineer</span>
                             </div>
 
                             <div className={css.details}>
@@ -178,7 +261,7 @@ export default function Home() {
                                     </Link>
                                 </div>
                                 <div className={css.dash}></div>
-                                <span className={css.job_title}>BSc in Computer Science</span>
+                                <span className={css.job_title}>BSc Computer Science</span>
                             </div>
 
                             <div className={css.details}>
@@ -382,9 +465,7 @@ export default function Home() {
                                     </Link>
                                 </div>
                                 <div className={css.dash}></div>
-                                <span className={css.job_title}>
-                                    OGV Manager
-                                </span>
+                                <span className={css.job_title}>OGV Manager</span>
                             </div>
 
                             <div className={css.details}>
@@ -421,7 +502,10 @@ export default function Home() {
                         </div>
                     </section>
                 </main>
-                <div className={`${css.navigation} ${!showNavigation && css.hidden}`}>
+                <div
+                    ref={navigationRef}
+                    className={`${css.navigation} ${!showNavigation && css.hidden}`}
+                >
                     <Menu fade_in={showMenu} showNavigation={setShowNavigation} />
                     <button
                         className={css.navigation_close_button}
