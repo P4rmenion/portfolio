@@ -34,7 +34,7 @@ export default function Home() {
         const lastAccess = localStorage.getItem('lastVisit')
             ? JSON.parse(localStorage.getItem('lastVisit')!)
             : null
-        const fifteenMinutes = 1000 * 60 * 15 * 0.001
+        const fifteenMinutes = 1000 * 60 * 15
 
         // Show splash screen if the last visit was more than 15 minutes ago
         if (!lastAccess || new Date().getTime() - lastAccess.timestamp > fifteenMinutes) {
