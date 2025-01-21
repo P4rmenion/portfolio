@@ -299,7 +299,8 @@
                     }
 
                     ul {
-                        list-style-position: inside;
+                        padding-left: 14px;
+                        list-style-position: outside;
                         display: flex;
                         flex-direction: column;
                         gap: 14px;
