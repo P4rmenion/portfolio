@@ -17,6 +17,9 @@ const Menu = forwardRef<
             onMouseLeave={() => setHideLinks(true)}
         >
             <span className={css.menu_title}>Navigate</span>
+            <a onTouchEnd={() => setTimeout(() => showNavigation(false), 750)} href="#about">
+                <span>About</span>
+            </a>
             <a onTouchEnd={() => setTimeout(() => showNavigation(false), 750)} href="#experience">
                 <span>Experience</span>
             </a>

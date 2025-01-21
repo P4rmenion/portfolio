@@ -30,9 +30,7 @@ const CV = () => {
                                     height={30}
                                     alt="LinkedIn Icon"
                                 />
-                                <span className={css.link_text}>
-                                    parmenion-charistos
-                                </span>
+                                <span className={css.link_text}>parmenion-charistos</span>
                             </Link>
                             <Link href={'https://github.com/P4rmenion'} target="_blank">
                                 <Image
@@ -96,8 +94,7 @@ const CV = () => {
                                     alt="NextJS Icon"
                                 />
                             </Link>
-                        </div>
-                        <div className={css.technologies}>
+
                             <Link href={'https://sass-lang.com'} target="_blank">
                                 <Image
                                     src={'/icons/tech/sass.svg'}
@@ -114,9 +111,7 @@ const CV = () => {
                                     alt="TailwindCSS Icon"
                                 />
                             </Link>
-                        </div>
 
-                        <div className={css.technologies}>
                             <Link href={'https://nodejs.org'} target="_blank">
                                 <Image
                                     src={'/icons/tech/node.svg'}

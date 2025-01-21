@@ -34,7 +34,7 @@ export default function Home() {
         const lastAccess = localStorage.getItem('lastVisit')
             ? JSON.parse(localStorage.getItem('lastVisit')!)
             : null
-        const fifteenMinutes = 1000 * 60 * 15
+        const fifteenMinutes = 1000 * 60 * 15 * 0.001
 
         // Show splash screen if the last visit was more than 15 minutes ago
         if (!lastAccess || new Date().getTime() - lastAccess.timestamp > fifteenMinutes) {
@@ -42,13 +42,22 @@ export default function Home() {
             setTimeout(() => {
                 setShowSplashScreen(false)
             }, 3000)
-            setTimeout(() => {
-                setShowMenu(true)
-                setShowSidebarHandle(true)
-            }, 4000)
-            setTimeout(() => {
-                setShowMain(true)
-            }, 5750)
+
+            if (window.innerWidth >= 1100) {
+                setTimeout(() => {
+                    setShowMenu(true)
+                    setShowSidebarHandle(true)
+                }, 4000)
+                setTimeout(() => {
+                    setShowMain(true)
+                }, 5750)
+            } else {
+                setTimeout(() => {
+                    setShowMenu(true)
+                    setShowSidebarHandle(true)
+                    setShowMain(true)
+                }, 4000)
+            }
         } else {
             setShowMenu(true)
             setShowSidebarHandle(true)
@@ -80,7 +89,9 @@ export default function Home() {
         (showSplashScreen && <Splash />) || (
             <div className={css.landing}>
                 <button
-                    className={`${css.sidebar_open_button} ${showSidebar && css.hidden}`}
+                    className={`${css.sidebar_open_button} ${
+                        showSidebar ? css.hidden : css.fade_in
+                    }`}
                     onClick={() => setShowSidebar(!showSidebar)}
                 >
                     <Image
@@ -124,65 +135,6 @@ export default function Home() {
                 >
                     <section id="about" className={css.experience}>
                         <h2 className={css.section_title}>About</h2>
-                        <div className={`${css.entry} ${josefin_sans.className}`}>
-                            <div className={css.entry_header}>
-                                <div className={css.employer}>
-                                    <Link href="https://www.deloitte.com" target="_blank">
-                                        <Image
-                                            src="/icons/companies/deloitte.svg"
-                                            alt="Deloitte Logo"
-                                            width={140}
-                                            height={50}
-                                        />
-                                    </Link>
-                                </div>
-                                <div className={css.dash}></div>
-                                <span className={css.job_title}>Frontend Engineer</span>
-                            </div>
-
-                            <div className={css.details}>
-                                <div className={css.time_period}>
-                                    <Image
-                                        src="/icons/general/calendar.svg"
-                                        alt="Calendar Icon"
-                                        width={20}
-                                        height={20}
-                                    />
-                                    <span>June 2022 - Today</span>
-                                </div>
-
-                                <div className={css.location}>
-                                    <Image
-                                        src="/icons/general/location.svg"
-                                        alt="Location Icon"
-                                        width={20}
-                                        height={20}
-                                    />
-                                    <span>Thessaloniki, Greece</span>
-                                </div>
-                            </div>
-
-                            <div className={css.description}>
-                                <ul>
-                                    <li>
-                                        Developed complete web UIs for internal activities (Deloitte
-                                        Digital) and external clients.
-                                    </li>
-                                    <li>
-                                        Built web pages in NextJS, integrated with client&apos;s
-                                        mobile application.
-                                    </li>
-                                    <li>
-                                        Implemented services within NextJS server components to
-                                        boost security and performance.
-                                    </li>
-                                    <li>
-                                        Collaborated within international teams to build atop
-                                        existing client infrastructure.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </section>
                     <section id="experience" className={css.experience}>
                         <h2 className={css.section_title}>Experience</h2>
@@ -520,7 +472,9 @@ export default function Home() {
                     </button>
                 </div>
                 <button
-                    className={`${css.navigation_open_button} ${showNavigation && css.hidden}`}
+                    className={`${css.navigation_open_button} ${
+                        showNavigation ? css.hidden : css.fade_in
+                    }`}
                     onClick={() => setShowNavigation(true)}
                 >
                     <Image src="/icons/general/map.svg" alt="Map Icon" width={50} height={50} />

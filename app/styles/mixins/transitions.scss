@@ -57,3 +57,14 @@
     transform: scale($scale);
     transition: all $duration ease-in-out;
 }
+
+@mixin rotate360($duration: 1.2s) {
+    animation: rotate360 $duration linear forwards;
+    transform-origin: center;
+
+    @keyframes rotate360 {
+        to {
+            transform: perspective(200px) rotateY(360deg);
+        }
+    }
+}

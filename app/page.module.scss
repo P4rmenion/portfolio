@@ -29,8 +29,13 @@
         font-size: 20px;
         font-weight: 200;
 
+        &.fade_in {
+            @include utils.fade_in();
+        }
+
         &.hidden {
-            display: none;
+            opacity: 0;
+            transition: all .3s ease-in-out;
         }
     }
 
@@ -222,10 +227,16 @@
                         @include utils.tablet() {}
 
                         @include utils.desktop() {
+                            a {
+                                img {
+                                    transition: all .5s ease-in-out;
+                                }
+                            }
+
                             &:hover {
                                 a {
                                     img {
-                                        animation: rotate360 1.2s linear forwards;
+                                        @include utils.expand(1.2, .5s);
                                     }
                                 }
                             }
@@ -361,7 +372,8 @@
 
     .navigation_open_button {
         &.hidden {
-            display: none;
+            opacity: 0;
+            transition: all .3s ease-in-out;
         }
 
         img {
@@ -373,6 +385,10 @@
         position: fixed;
         right: 6dvw;
         top: 6dvw;
+
+        &.fade_in {
+            @include utils.fade_in();
+        }
     }
 
     .navigation_close_button {
@@ -395,15 +411,5 @@
         .navigation_close_button {
             display: none;
         }
-    }
-}
-
-@keyframes rotate360 {
-    0% {
-        transform: perspective(300px) rotateY(0deg);
-    }
-
-    100% {
-        transform: perspective(300px) rotateY(360deg);
     }
 }
