@@ -22,6 +22,8 @@
         align-items: center;
 
         img {
+            width: 80%;
+            height: 80%;
             aspect-ratio: 1;
             object-fit: cover;
             object-position: top - 50px;
@@ -31,7 +33,10 @@
             border-radius: 9999px;
             border: 2px solid utils.$text-primary;
 
-            @include utils.tablet() {}
+            @include utils.tablet() {
+                width: 80%;
+                height: 80%;
+            }
 
             @include utils.desktop() {
 
@@ -53,9 +58,7 @@
         font-weight: 600;
         text-align: center;
 
-        @include utils.tablet() {
-
-        }
+        @include utils.tablet() {}
 
         @include utils.desktop() {
             height: 0;

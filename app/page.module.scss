@@ -345,6 +345,7 @@
     .navigation {
         transform: translateX(0);
         height: 100vh;
+        z-index: 2;
 
         position: fixed;
         right: 0;

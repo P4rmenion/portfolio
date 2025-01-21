@@ -4,7 +4,7 @@
     width: 100dvw;
     height: 100%;
 
-    padding: 100px 20px;
+    padding: 80px 20px;
     background-color: black;
     border-right: 1px dashed #969696;
 
@@ -23,13 +23,11 @@
     }
 
     @include utils.tablet() {
-        width: auto;
-        max-width: 50dvw;
+        width: min-content;
         padding: 50px;
     }
 
     @include utils.desktop() {
-        max-width: none;
         width: 400px;
     }
 
