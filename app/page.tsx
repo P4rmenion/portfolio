@@ -11,38 +11,22 @@ import Link from 'next/link'
 
 import { josefin_sans } from './fonts'
 import css from './page.module.scss'
-import { useBreakpoints } from '@/scripts/commons'
 
 export default function Home() {
-    const device = useBreakpoints()
-
     const [showSplashScreen, setShowSplashScreen] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
-    const [showMenuSideline, setShowMenuSideline] = useState(false)
     const [showSidebarHandle, setShowSidebarHandle] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
     const [showNavigation, setShowNavigation] = useState(false)
     const [showMain, setShowMain] = useState(false)
 
     useEffect(() => {
-        if (device.isDesktop) {
-            setShowNavigation(true)
-        }
-    }, [device.isDesktop])
+        setShowNavigation(window.innerWidth > 1024)
+    }, [])
 
+    // Animate components loading.
     useEffect(() => {
-        if (showSidebar || (!device.isDesktop && showNavigation)) {
-            document.body.style.position = 'fixed'
-            document.body.style.height = '100%'
-            document.body.style.width = '100%'
-        } else {
-            document.body.style.position = ''
-            document.body.style.height = ''
-            document.body.style.width = ''
-        }
-    }, [showSidebar, showNavigation])
-
-    useEffect(() => {
+        // Check if the last visit was more than 15 minutes ago
         const lastAccess = localStorage.getItem('lastVisit')
             ? JSON.parse(localStorage.getItem('lastVisit')!)
             : null
@@ -53,22 +37,16 @@ export default function Home() {
             setShowSplashScreen(true)
             setTimeout(() => {
                 setShowSplashScreen(false)
-            }, 11500)
+            }, 3000)
             setTimeout(() => {
                 setShowMenu(true)
-            }, 12500)
-            setTimeout(() => {
-                setShowMenuSideline(true)
-            }, 13750)
-            setTimeout(() => {
                 setShowSidebarHandle(true)
-            }, 15000)
+            }, 4000)
             setTimeout(() => {
                 setShowMain(true)
-            }, 16500)
+            }, 5750)
         } else {
             setShowMenu(true)
-            setShowMenuSideline(true)
             setShowSidebarHandle(true)
             setShowMain(true)
         }
@@ -78,35 +56,8 @@ export default function Home() {
         localStorage.setItem('lastVisit', JSON.stringify(lastVisit))
     }, [])
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-            const target = event.target as HTMLElement
-            const sidebar = document.querySelector(`.${css.sidebar}`)
-            const navigation = document.querySelector(`.${css.navigation}`)
-            const sidebarButton = document.querySelector(`.${css.sidebar_open_button}`)
-            const navigationButton = document.querySelector(`.${css.navigation_open_button}`)
-
-            if (sidebar && navigation && sidebarButton && navigationButton) {
-                const clickedOutsideSidebar = !sidebar.contains(target) && target !== sidebarButton
-                const clickedOutsideNavigation =
-                    !navigation.contains(target) && target !== navigationButton
-
-                if (clickedOutsideSidebar) setShowSidebar(false)
-                if (clickedOutsideNavigation) setShowNavigation(false)
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside)
-        document.addEventListener('touchstart', handleClickOutside)
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
-            document.removeEventListener('touchstart', handleClickOutside)
-        }
-    }, [])
-
     return (
-        (device.isDesktop && showSplashScreen && <Splash />) || (
+        (showSplashScreen && <Splash />) || (
             <div className={css.landing}>
                 <button
                     className={`${css.sidebar_open_button} ${showSidebar && css.hidden}`}
@@ -432,7 +383,7 @@ export default function Home() {
                                 </div>
                                 <div className={css.dash}></div>
                                 <span className={css.job_title}>
-                                    Outgoing Global Volunteer (OGV)
+                                    OGV Manager
                                 </span>
                             </div>
 
@@ -471,11 +422,7 @@ export default function Home() {
                     </section>
                 </main>
                 <div className={`${css.navigation} ${!showNavigation && css.hidden}`}>
-                    <Menu
-                        fade_in={showMenu}
-                        sideline={showMenuSideline}
-                        showNavigation={setShowNavigation}
-                    />
+                    <Menu fade_in={showMenu} showNavigation={setShowNavigation} />
                     <button
                         className={css.navigation_close_button}
                         onClick={() => setShowNavigation(!showNavigation)}

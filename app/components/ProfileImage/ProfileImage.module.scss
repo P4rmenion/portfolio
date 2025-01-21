@@ -1,57 +1,60 @@
 @use '@styles/utils';
 
 .image_container {
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid utils.$text-primary;
+    overflow: hidden;
+
     @include utils.tablet() {
         width: 300px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        border-bottom: 2px solid utils.$text-primary;
-        overflow: hidden;
     }
 
     .image_link {
         position: relative;
 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         img {
-            @include utils.tablet() {
-                aspect-ratio: 1;
-                object-fit: cover;
-                object-position: top - 50px;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: top - 50px;
 
-                background-color: transparent;
+            background-color: transparent;
 
-                border-radius: 9999px;
-                border: 2px solid utils.$text-primary;
-            }
+            border-radius: 9999px;
+            border: 2px solid utils.$text-primary;
+
+            @include utils.tablet() {}
 
             @include utils.desktop() {
-                aspect-ratio: 1;
-                object-fit: cover;
-                object-position: top - 50px;
+
                 filter: grayscale(100%);
 
                 transition: all 0.2s ease-in-out;
                 background-color: transparent;
-
-                border-radius: 9999px;
-                border: 2px solid utils.$text-primary;
             }
         }
     }
 
     .image_overlay {
-        @include utils.tablet() {
-            display: block;
-            width: 100%;
-            padding-block: 20px;
+        display: block;
+        width: 100%;
+        padding-block: 20px;
 
-            text-transform: uppercase;
-            font-size: 30px;
-            font-weight: 600;
-            text-align: center;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+
+        @include utils.tablet() {
+
         }
 
         @include utils.desktop() {

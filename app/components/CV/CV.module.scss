@@ -1,49 +1,68 @@
 @use '@styles/utils';
 
 .cv {
+    width: 100dvw;
+    height: 100%;
+
+    padding: 50px 20px;
+    background-color: black;
+    border-right: 1px dashed #969696;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+
+    /* Internet Explorer 10+ */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* Safari and Chrome */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     @include utils.tablet() {
-        height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
+        width: auto;
         padding: 50px;
-        background-color: black;
-        border-right: 1px dashed #969696;
-
-        overflow-y: scroll;
-        overflow-x: hidden;
-        direction: rtl;
-
-        /* Internet Explorer 10+ */
-        -ms-overflow-style: none;
-        /* Firefox */
-        scrollbar-width: none;
-
-        /* Safari and Chrome */
-        &::-webkit-scrollbar {
-            display: none;
-        }
     }
 
     @include utils.desktop() {
         width: 400px;
     }
 
-    .bio {
+    .image_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         @include utils.tablet() {
-            direction: ltr;
 
-            padding-block: 20px;
-            font-weight: 500;
+        }
+    }
 
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+    .bio {
+        width: 90%;
+        direction: ltr;
+
+        padding-block: 20px;
+        font-weight: 500;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include utils.tablet() {
+            width: 100%;
         }
 
         .quote {
+            font-weight: 300;
+            font-size: 20px;
+            font-style: italic;
+            quotes: "“" "”";
+
             @include utils.tablet() {
                 font-weight: 300;
                 font-size: 20px;
@@ -53,48 +72,56 @@
         }
 
         .contact {
-            @include utils.tablet() {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                border-top: 1px solid #ffffff5b;
-                padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #ffffff5b;
+            padding-top: 20px;
 
-                font-weight: 300;
-                font-size: 18px;
-                line-height: 1;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 1;
+
+            @include utils.tablet() {
+    
             }
 
             .links {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
                 @include utils.tablet() {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
+      
                 }
 
                 span {
+                    width: max-content;
+                    background-color: white;
+                    color: black;
+                    font-weight: 400;
+                    line-height: 1;
+                    padding: 5px 12px;
+                    border-radius: 0 100px 100px 0;
+                    vertical-align: middle;
+
                     @include utils.tablet() {
-                        width: max-content;
-                        background-color: white;
-                        color: black;
-                        font-weight: 400;
-                        line-height: 1;
-                        padding: 5px 12px;
-                        border-radius: 0 100px 100px 0;
-                        vertical-align: middle;
+   
                     }
                 }
 
                 a {
-                    @include utils.tablet() {
-                        width: 30px;
-                        height: 30px;
-                        position: relative;
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
 
-                        span,
-                        .link_text {
-                            display: none;
-                        }
+                    span,
+                    .link_text {
+                        display: none;
+                    }
+
+                    @include utils.tablet() {
+     
                     }
 
                     @include utils.desktop() {
@@ -147,30 +174,35 @@
         }
 
         .outro {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border-top: 1px solid #ffffff5b;
+            padding-top: 20px;
 
             @include utils.tablet() {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                border-top: 1px solid #ffffff5b;
-                padding-top: 20px;
+   
             }
 
             span {
+                font-weight: 300;
+                font-size: 18px;
+                margin-bottom: 10px;
+
                 @include utils.tablet() {
-                    font-weight: 300;
-                    font-size: 18px;
-                    margin-bottom: 10px;
+
                 }
             }
 
             .technologies {
-                @include utils.tablet() {
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
 
-                    flex-wrap: wrap;
+                flex-wrap: wrap;
+
+                @include utils.tablet() {
+
                 }
 
                 img {

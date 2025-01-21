@@ -1,9 +1,9 @@
-@mixin fade_out($duration: 0.3s) {
+@mixin fade_out($duration: 0.5s) {
     transition: opacity $duration ease-in-out;
     opacity: 0;
 }
 
-@mixin fade_in($duration: 0.3s) {
+@mixin fade_in($duration: 0.5s) {
     transition: opacity $duration ease-in-out;
     opacity: 1;
 }

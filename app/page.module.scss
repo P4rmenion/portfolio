@@ -9,42 +9,39 @@
 
     display: flex;
 
-    @include utils.tablet() {
+    .sidebar_open_button,
+    .sidebar_close_button {
+        all: unset;
+    }
 
-        .sidebar_open_button,
-        .sidebar_close_button {
-            all: unset;
+    .sidebar_open_button {
+        @include utils.spin();
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+
+        position: fixed;
+        left: 6dvw;
+        top: 6dvw;
+
+        font-size: 20px;
+        font-weight: 200;
+
+        &.hidden {
+            display: none;
         }
+    }
 
-        .sidebar_open_button {
-            @include utils.spin();
+    .sidebar_close_button {
+        @include utils.spin(6s);
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
+        display: block;
 
-            position: fixed;
-            left: 6dvw;
-            top: 6dvw;
-
-            font-size: 20px;
-            font-weight: 200;
-
-            &.hidden {
-                display: none;
-            }
-        }
-
-        .sidebar_close_button {
-            @include utils.spin(6s);
-
-            display: block;
-
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
 
     @include utils.desktop() {
@@ -56,23 +53,24 @@
     }
 
     .sidebar {
-        @include utils.tablet() {
-            height: 100dvh;
+        height: 100dvh;
 
-            position: fixed;
-            left: 0;
-            top: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
 
-            display: flex;
-            align-items: center;
+        display: flex;
+        align-items: center;
+        z-index: 2;
 
-            &.hidden {
-                transform: translateX(-100%);
-            }
+        transform: translateX(0%);
+        transition: all .4s ease-in-out;
 
-            transform: translateX(0%);
-            transition: all .4s ease-in-out;
+        &.hidden {
+            transform: translateX(-100%);
         }
+
+        @include utils.tablet() {}
 
         @include utils.desktop() {
             &.hidden {
@@ -91,13 +89,10 @@
             }
         }
 
-        z-index: 2;
 
         &_handle {
-            @include utils.tablet() {
-                span {
-                    display: none;
-                }
+            span {
+                display: none;
             }
 
             @include utils.desktop() {
@@ -135,39 +130,51 @@
     }
 
     .main {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        gap: 60px;
+
+        padding-inline: 6dvw;
+        padding-block: 120px 80px;
+
+        transition: all .3s ease-in-out;
+
         @include utils.tablet() {
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-evenly;
             gap: 120px;
-
-            padding-inline: 6dvw;
             padding-block: 160px 80px;
         }
 
         @include utils.desktop() {
-            width: 100%;
-            height: 100%;
-
             padding-inline: 15dvw;
             padding-block: 20dvh;
         }
 
         section {
-            @include utils.tablet() {
-                width: 100%;
-                color: utils.$text-primary;
+            width: 100%;
+            color: utils.$text-primary;
 
-                display: flex;
-                flex-direction: column;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @include utils.tablet() {
                 gap: 50px;
             }
 
             .section_title {
+                width: 100%;
+
+                font-weight: 200;
+                font-size: 30px;
+
+                text-transform: uppercase;
+                border-bottom: 1px solid utils.$border-color;
+
                 @include utils.tablet() {
                     width: 100%;
 
@@ -180,28 +187,37 @@
             }
 
             .entry {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                background-color: utils.$bg-primary-light;
+                padding: 20px;
+                border-radius: 10px;
+
                 @include utils.tablet() {
-                    display: flex;
-                    flex-direction: column;
                     gap: 20px;
 
-                    background-color: utils.$bg-primary-light;
                     padding: 20px;
                     border-radius: 20px;
                 }
 
                 &_header {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+
                     @include utils.tablet() {
-                        display: flex;
+                        flex-direction: row;
                         align-items: center;
-                        gap: 30px;
                     }
 
                     .employer {
-                        @include utils.tablet() {
-                            display: flex;
-                            align-items: center;
-                        }
+                        display: flex;
+                        align-items: center;
+
+                        @include utils.tablet() {}
 
                         @include utils.desktop() {
                             &:hover {
@@ -215,39 +231,53 @@
                     }
 
                     .dash {
+                        display: none;
+
                         @include utils.tablet() {
-                            flex-shrink: 0;
                             width: 20px;
                             height: 2px;
+
+                            flex-shrink: 0;
                             background-color: utils.$text-primary;
                         }
                     }
 
                     .job_title {
+                        font-size: 25px;
+                        font-weight: 300;
+
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+
                         @include utils.tablet() {
                             font-size: 40px;
-                            font-weight: 300;
-
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            overflow: hidden;
                         }
                     }
                 }
 
                 .details {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+
                     @include utils.tablet() {
-                        display: flex;
+                        flex-direction: row;
                         align-items: center;
                         gap: 40px;
                     }
 
                     .time_period,
                     .location {
-                        @include utils.tablet() {
-                            display: flex;
-                            gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
 
+                        font-size: 16px;
+                        font-weight: 400;
+
+                        @include utils.tablet() {
                             font-size: 20px;
                             font-weight: 500;
                         }
@@ -255,11 +285,13 @@
                 }
 
                 .description {
-                    @include utils.tablet() {
-                        max-width: 100%;
+                    max-width: 100%;
 
+                    font-size: 16px;
+                    font-weight: 300;
+
+                    @include utils.tablet() {
                         font-size: 20px;
-                        font-weight: 300;
                     }
 
                     @include utils.desktop() {
@@ -267,11 +299,14 @@
                     }
 
                     ul {
+                        list-style-position: inside;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 14px;
+
                         @include utils.tablet() {
                             padding-left: 20px;
                             list-style-position: outside;
-                            display: flex;
-                            flex-direction: column;
                             gap: 10px;
                         }
                     }
@@ -281,50 +316,62 @@
     }
 
     .navigation {
+        transform: translateX(0);
+        height: 100vh;
+
         position: fixed;
         right: 0;
         top: 0;
 
         flex-shrink: 0;
-
-        transform: translateX(0);
         transition: all .3s ease-in-out;
 
         &.hidden {
             transform: translateX(100%);
             transition: all .3s ease-in-out;
         }
-    }
 
-    @include utils.tablet() {
-        .navigation_open_button {
-            &.hidden {
-                display: none;
-            }
+        @include utils.tablet() {}
 
-            img {
-                @include utils.spin();
-            }
+        @include utils.desktop() {
+            top: 50%;
+            transform: translateY(-50%);
 
-            all: unset;
-
-            position: fixed;
-            right: 6dvw;
-            top: 6dvw;
-        }
-
-        .navigation_close_button {
-            img {
-                @include utils.spin();
-            }
-
-            all: unset;
-
-            position: fixed;
-            right: 30px;
-            top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
+
+    .navigation_open_button {
+        &.hidden {
+            display: none;
+        }
+
+        img {
+            @include utils.spin();
+        }
+
+        all: unset;
+
+        position: fixed;
+        right: 6dvw;
+        top: 6dvw;
+    }
+
+    .navigation_close_button {
+        img {
+            @include utils.spin();
+        }
+
+        all: unset;
+
+        position: fixed;
+        right: 30px;
+        top: 30px;
+    }
+
+    @include utils.tablet() {}
 
     @include utils.desktop() {
 

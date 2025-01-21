@@ -1,59 +1,115 @@
 @use '@styles/utils';
 
 .menu {
+    width: 100dvw;
+    height: 100dvh;
+
+    padding-inline: 40px;
+    padding-block: 120px;
+
+    border-left: 1px dashed white;
+    background-color: utils.$bg-transparent;
+    backdrop-filter: blur(4px);
+    
+    color: utils.$text-primary;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &_title {
+        display: block;
+        width: 100%;
+
+        padding-block: 0px;
+        border-bottom: 2px solid utils.$separator-color;
+
+        font-size: 25px;
+        font-weight: 300;
+        text-transform: uppercase;
+
+        margin-bottom: 30px;
+    }
+
+    &_handle {
+        display: none;
+    }
+
     @include utils.tablet() {
         width: fit-content;
-        height: 100dvh;
 
-        padding-inline: 40px;
-        padding-block: 80px;
-
-        border-left: 1px dashed white;
-
-        color: utils.$text-primary;
-        background-color: utils.$bg-transparent;
-        backdrop-filter: blur(4px);
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        &_title {
-            display: block;
-            width: 100%;
-
-            border-bottom: 2px solid utils.$separator-color;
-
-            font-size: 25px;
-            font-weight: 300;
-            text-transform: uppercase;
-
-            margin-bottom: 30px;
-        }
+        &_title {}
     }
 
     @include utils.desktop() {
-        width: fit-content;
-        height: auto;
+        width: 350px;
+        height: 60vh;
+        position: relative;
 
         margin-right: 40px;
-        margin-top: 40px;
         padding: 20px;
 
         box-shadow: 0 currentColor;
-        border-right: 1px solid utils.$border-color-transparent;
+        border-right: 1px solid utils.$border-color;
         border-left: none;
         border-radius: 50px 0 0 50px;
 
+        background-color: transparent;
+        backdrop-filter: none;
+
+        transition: all .5s ease-out;
+        display: flex;
         justify-content: center;
+        align-items: flex-end;
 
-        &.side_line {
-            transition: all 0.3s ease-in-out;
-            border-color: utils.$border-color;
+        a {
+            transition: transform 0.5s ease-out;
+            transform: translateX(0);
+            background-color: utils.$bg-transparent;
+            backdrop-filter: blur(4px);
+            padding-left: 10px;
+        }
 
-            &:hover {
-                transition: all 0.3s ease-in-out;
-                box-shadow: 1px 0 currentColor;
+        &.hide_links {
+            width: 70px;
+            transition: all .5s ease-out;
+
+            a {
+                transition: transform 0.5s ease-out;
+                transform: translateX(200%);
+            }
+
+            .menu_handle {
+                @include utils.fade_in();
+            }
+        }
+
+        &_handle {
+            @include utils.fade_out(.2s);
+
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            width: 70px;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                font-weight: 200;
+                font-size: 40px;
+                line-height: 1;
+                text-transform: uppercase;
+
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+
+                text-align: center;
+                user-select: none;
             }
         }
 
@@ -63,16 +119,18 @@
     }
 
     a>span {
+        font-weight: 200;
+        font-size: 30px;
+        text-transform: uppercase;
+        display: block;
+
+        transform: scale(1);
+        text-shadow: 0;
+
+        transition: all 0.3s ease-in-out;
+
         @include utils.tablet() {
-            font-weight: 200;
             font-size: 40px;
-            text-transform: uppercase;
-            display: block;
-
-            transform: scale(1);
-            text-shadow: 0;
-
-            transition: all 0.3s ease-in-out;
         }
 
         @include utils.desktop() {
