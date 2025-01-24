@@ -1,1 +1,1 @@
-Take a look at https://parmenion-charistos.vercel.app
+Take a look at https://parmenion-charistos.vercel.app/curriculum-vitae
