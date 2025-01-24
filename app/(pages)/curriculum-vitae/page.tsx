@@ -9,7 +9,7 @@ import CV from '@/components/CV'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { josefin_sans } from './fonts'
+import { josefin_sans } from '../../fonts'
 import css from './page.module.scss'
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
     const navigationRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setShowNavigation(window.innerWidth > 1024)
+        setShowNavigation(window.innerWidth > 1100)
     }, [])
 
     // Animate components loading.
@@ -72,7 +72,7 @@ export default function Home() {
     // Add click outside effect
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (window.innerWidth <= 1024) {
+            if (window.innerWidth <= 1100) {
                 if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node))
                     setShowSidebar(false)
 
@@ -133,9 +133,6 @@ export default function Home() {
                         showMain && showSidebar && css.blur
                     }`}
                 >
-                    <section id="about" className={css.experience}>
-                        <h2 className={css.section_title}>About</h2>
-                    </section>
                     <section id="experience" className={css.experience}>
                         <h2 className={css.section_title}>Experience</h2>
                         <div className={`${css.entry} ${josefin_sans.className}`}>

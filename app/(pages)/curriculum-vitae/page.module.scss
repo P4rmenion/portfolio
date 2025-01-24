@@ -229,14 +229,14 @@
                         @include utils.desktop() {
                             a {
                                 img {
-                                    transition: all .5s ease-in-out;
+                                    transition: all .4s ease-in-out;
                                 }
                             }
 
                             &:hover {
                                 a {
                                     img {
-                                        @include utils.expand(1.2, .5s);
+                                        @include utils.expand(1.15, .4s);
                                     }
                                 }
                             }
