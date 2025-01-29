@@ -1,160 +1,324 @@
-import ProfileImage from '@/components/ProfileImage'
 import Image from 'next/image'
-import { josefin_sans } from '@/fonts'
-
-import css from './CV.module.scss'
 import Link from 'next/link'
+
+import { josefin_sans } from '@/fonts'
+import css from './CV.module.scss'
 
 const CV = () => {
     return (
-        <div className={css.cv}>
-            <div className={css.image_container}>
-                <ProfileImage />
+        <main className={css.cv}>
+            <section id="experience" className={css.experience}>
+                <h2 className={css.section_title}>Experience</h2>
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link href="https://www.deloitte.com" target="_blank">
+                                <Image
+                                    src="/icons/companies/deloitte.svg"
+                                    alt="Deloitte Logo"
+                                    width={140}
+                                    height={50}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>Frontend Engineer</span>
+                    </div>
 
-                <div className={`${css.bio} ${josefin_sans.className}`}>
-                    <q className={css.quote}>What&apos;s the best that can happen?</q>
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>June 2022 - Today</span>
+                        </div>
 
-                    <div className={css.contact}>
-                        <span className={css.birthplace}>
-                            Residing in <strong>Thessaloniki, Greece</strong>.
-                        </span>
-                        <div className={css.links}>
-                            <span>Reach me</span>
-                            <Link
-                                href={'https://www.linkedin.com/in/parmenion-charistos'}
-                                target="_blank"
-                            >
-                                <Image
-                                    src={'/icons/media/linkedin.svg'}
-                                    width={30}
-                                    height={30}
-                                    alt="LinkedIn Icon"
-                                />
-                                <span className={css.link_text}>parmenion-charistos</span>
-                            </Link>
-                            <Link href={'https://github.com/P4rmenion'} target="_blank">
-                                <Image
-                                    src={'/icons/media/github.svg'}
-                                    width={30}
-                                    height={30}
-                                    alt="Github Icon"
-                                />
-                                <span className={css.link_text}>P4rmenion</span>
-                            </Link>
-                            <Link href={'mailto:parmenion.char@gmail.com'} target="_blank">
-                                <Image
-                                    src={'/icons/media/email.svg'}
-                                    width={30}
-                                    height={30}
-                                    alt="Email Icon"
-                                />
-                                <span className={css.link_text}>parmenion.char@gmail.com</span>
-                            </Link>
-                            <Link href={'tel:+306972742397'} target="_blank">
-                                <Image
-                                    src={'/icons/media/phone.svg'}
-                                    width={30}
-                                    height={30}
-                                    alt="Phone Icon"
-                                />
-                                <span className={css.link_text}>+306972742397</span>
-                            </Link>
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Thessaloniki, Greece</span>
                         </div>
                     </div>
 
-                    <div className={css.outro}>
-                        <span>A dev is only as good as their tech</span>
-                        <div className={css.technologies}>
-                            <Link
-                                href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
-                                target="_blank"
-                            >
-                                <Image
-                                    src={'/icons/tech/javascript.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="JavaScript Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://react.dev'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/react.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="ReactJS Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://nextjs.org'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/next.svg'}
-                                    width={50}
-                                    height={50}
-                                    alt="NextJS Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://sass-lang.com'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/sass.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="SASS Icon"
-                                />
-                            </Link>
-                            <Link href={'https://tailwindcss.com'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/tailwind.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="TailwindCSS Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://nodejs.org'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/node.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="NodeJS Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://www.postgresql.org'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/postgresql.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="PostgreSQL Icon"
-                                />
-                            </Link>
-
-                            <Link
-                                href={'https://www.java.com/en/download/help/whatis_java.html'}
-                                target="_blank"
-                            >
-                                <Image
-                                    src={'/icons/tech/java.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="Java Icon"
-                                />
-                            </Link>
-
-                            <Link href={'https://www.python.org'} target="_blank">
-                                <Image
-                                    src={'/icons/tech/python.svg'}
-                                    width={40}
-                                    height={40}
-                                    alt="Python Icon"
-                                />
-                            </Link>
-                        </div>
+                    <div className={css.description}>
+                        <ul>
+                            <li>
+                                Developed complete web UIs for internal activities (Deloitte
+                                Digital) and external clients.
+                            </li>
+                            <li>
+                                Built web pages in NextJS, integrated with client&apos;s mobile
+                                application.
+                            </li>
+                            <li>
+                                Implemented services within NextJS server components to boost
+                                security and performance.
+                            </li>
+                            <li>
+                                Collaborated within international teams to build atop existing
+                                client infrastructure.
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+            <section id="education" className={css.education}>
+                <h2 className={css.section_title}>Education</h2>
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link href="https://www.auth.gr/en/" target="_blank">
+                                <Image
+                                    src="/icons/universities/auth.svg"
+                                    alt="Aristotle University Logo"
+                                    width={90}
+                                    height={90}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>BSc Computer Science</span>
+                    </div>
+
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Oct 2017 - Nov 2023</span>
+                        </div>
+
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Thessaloniki, Greece</span>
+                        </div>
+                    </div>
+
+                    <div className={css.description}>
+                        <ul>
+                            <li>
+                                Studied fundamentals of computer science across most disciplines.
+                            </li>
+                            <li>
+                                Majored in <strong>Artificial Intelligence</strong>, as well as{' '}
+                                <strong>Web & Data Management</strong>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link
+                                href="https://www.mdu.se/en/malardalen-university"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/universities/mdu.svg"
+                                    alt="Malardalens University Logo"
+                                    width={100}
+                                    height={80}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>Erasmus+ Exchange Semester</span>
+                    </div>
+
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Aug 2021 - Jan 2022</span>
+                        </div>
+
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Västerås, Sweden</span>
+                        </div>
+                    </div>
+
+                    <div className={css.description}>
+                        <ul>
+                            <li>Attended courses with emphasis in web and mobile development.</li>
+                            <li>
+                                Collaborated in team development projects in a multicultural
+                                environment.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="volunteering" className={css.volunteering}>
+                <h2 className={css.section_title}>Volunteering</h2>
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link href="https://pplg.org" target="_blank">
+                                <Image
+                                    src="/icons/organisations/pplg.png"
+                                    alt="PPLG Logo"
+                                    width={130}
+                                    height={54}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>Tech Support</span>
+                    </div>
+
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Sep 2021</span>
+                        </div>
+
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Remote</span>
+                        </div>
+                    </div>
+
+                    <div className={css.description}>
+                        <ul>
+                            <li>Managed the technical side of large scale zoom sessions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link href="https://arsis.gr" target="_blank">
+                                <Image
+                                    src="/icons/organisations/arsis.svg"
+                                    alt="Arsis Logo"
+                                    width={130}
+                                    height={90}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>Computers Class Teacher</span>
+                    </div>
+
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Oct 2019 - Jan 2020</span>
+                        </div>
+
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Thessaloniki, Greece</span>
+                        </div>
+                    </div>
+
+                    <div className={css.description}>
+                        <ul>
+                            <li>
+                                Taught basic computer tools and fundamental programming principles
+                                to children refugees.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={`${css.entry} ${josefin_sans.className}`}>
+                    <div className={css.entry_header}>
+                        <div className={css.employer}>
+                            <Link href="https://aiesec.org" target="_blank">
+                                <Image
+                                    src="/icons/organisations/aiesec.png"
+                                    alt="AIESEC Logo"
+                                    width={290}
+                                    height={60}
+                                />
+                            </Link>
+                        </div>
+                        <div className={css.dash}></div>
+                        <span className={css.job_title}>OGV Manager</span>
+                    </div>
+
+                    <div className={css.details}>
+                        <div className={css.time_period}>
+                            <Image
+                                src="/icons/general/calendar.svg"
+                                alt="Calendar Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Nov 2018 - Oct 2019</span>
+                        </div>
+
+                        <div className={css.location}>
+                            <Image
+                                src="/icons/general/location.svg"
+                                alt="Location Icon"
+                                width={20}
+                                height={20}
+                            />
+                            <span>Thessaloniki, Greece</span>
+                        </div>
+                    </div>
+
+                    <div className={css.description}>
+                        <ul>
+                            <li>
+                                Demonstrated the organization&apos;s volunteering programs to
+                                university students.
+                            </li>
+                            <li>Monitored their subsequent programs abroad.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
     )
 }
 
