@@ -6,7 +6,6 @@ import CV from '@/components/CV'
 import { Navigation, NavigationButton } from '@/components/Navigation'
 
 import css from './page.module.scss'
-import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Home() {
