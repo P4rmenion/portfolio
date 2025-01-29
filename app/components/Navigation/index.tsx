@@ -1,12 +1,15 @@
-import { useRef, useState } from 'react'
-
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+
 import css from './Navigation.module.scss'
 
-const Navigation = () => {
-    const [openNavigation, setOpenNavigation] = useState(false)
-    const nav = useRef<HTMLDivElement>(null)
-
+export const Navigation = ({
+    open,
+    setOpenNavigation,
+}: {
+    open: boolean
+    setOpenNavigation: (open: boolean) => void
+}) => {
     const hideNavigation = () => {
         setOpenNavigation(false)
     }
@@ -15,8 +18,24 @@ const Navigation = () => {
         setOpenNavigation(true)
     }
 
+    const nav = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        document.addEventListener('click', (event) => {
+            const target = event.target as HTMLElement
+
+            if (
+                nav.current &&
+                !nav.current.contains(target) &&
+                target.id !== 'navigation-button'
+            ) {
+                setOpenNavigation(false)
+            }
+        })
+    }, [nav, setOpenNavigation])
+
     return (
-        <div className={`${css.navigation} ${openNavigation && css.navigation_open}`} ref={nav}>
+        <div className={`${css.navigation} ${open && css.navigation_open}`} ref={nav}>
             <button className={css.navigation_close_button} onClick={hideNavigation}>
                 <Image src={'/icons/general/close.svg'} alt="Close Icon" width={30} height={30} />
             </button>
@@ -34,13 +53,31 @@ const Navigation = () => {
                 </a>
             </div>
 
-            <div onMouseOver={showNavigation} onMouseLeave={hideNavigation} className={css.navigation_handle}>
+            <div
+                onMouseOver={showNavigation}
+                onMouseLeave={hideNavigation}
+                className={css.navigation_handle}
+            >
                 <span>Navigate</span>
             </div>
         </div>
     )
 }
 
-Navigation.displayName = 'Navigation'
-
-export default Navigation
+export const NavigationButton = ({
+    setOpenNavigation,
+}: {
+    setOpenNavigation: (open: boolean) => void
+}) => {
+    return (
+        <button className={css.navigation_open_button} onClick={() => setOpenNavigation(true)}>
+            <Image
+                id="navigation-button"
+                src={'/icons/general/map.svg'}
+                alt="Map Icon"
+                width={50}
+                height={50}
+            />
+        </button>
+    )
+}

@@ -6,7 +6,7 @@
 
     width: 100vw;
     padding-block: 20px;
-    padding-inline: 10px;
+    padding-inline: 6dvw;
 
     position: fixed;
     top: 0;
@@ -15,6 +15,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    button {
+        all: unset;
+    }
 
     @include utils.desktop() {
         display: none;

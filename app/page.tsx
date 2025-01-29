@@ -1,28 +1,28 @@
 'use client'
 
 import Header from '@/components/Header'
-import ProfileSidebar from '@/components/ProfileSidebar'
+import { ProfileSidebar, SidebarButton } from '@/components/ProfileSidebar'
 import CV from '@/components/CV'
-import Navigation from '@/components/Navigation'
+import { Navigation, NavigationButton } from '@/components/Navigation'
 
 import css from './page.module.scss'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Home() {
+    const [openNavigation, setOpenNavigation] = useState(false)
+    const [openSidebar, setOpenSidebar] = useState(false)
+
     return (
         <div className={css.landing}>
             <Header>
-                <button className={css.sidebar_open_button}>
-                    <Image src={'/icons/general/info.svg'} alt="Info Icon" width={30} height={30} />
-                </button>
-
-                <button className={css.navigation_open_button}>
-                    <Image src={'/icons/general/map.svg'} alt="Map Icon" width={30} height={30} />
-                </button>
+                <SidebarButton setOpenSidebar={setOpenSidebar} />
+                <NavigationButton setOpenNavigation={setOpenNavigation} />
             </Header>
-            <ProfileSidebar />
+
+            <ProfileSidebar open={openSidebar} setOpenSidebar={setOpenSidebar} />
             <CV />
-            <Navigation />
+            <Navigation open={openNavigation} setOpenNavigation={setOpenNavigation} />
         </div>
     )
 }

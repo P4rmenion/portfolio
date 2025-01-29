@@ -24,7 +24,7 @@
 
     @include utils.tablet() {
         width: min-content;
-        padding: 50px;
+        padding: 80px 40px;
     }
 
     @include utils.desktop() {
