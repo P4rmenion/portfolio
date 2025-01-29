@@ -8,36 +8,53 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    gap: 100px;
+    gap: 60px;
 
-    padding-inline: 5vw;
-    padding-block: 10vh;
+    padding-inline: 6dvw;
+    padding-block: 120px 80px;
 
-    &.visible {
-        opacity: 1;
-        transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+    @include utils.tablet() {
+        gap: 120px;
+        padding-block: 160px 80px;
     }
 
-    .dash {
-        display: none;
+    @include utils.desktop() {
+        padding-inline: 15dvw;
+        padding-block: 20dvh;
     }
 
     section {
         width: 100%;
-        color: white;
+        color: utils.$text-primary;
 
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
+
+        @include utils.tablet() {
+            gap: 50px;
+        }
 
         .section_title {
             width: 100%;
 
             font-weight: 200;
-            font-size: 60px;
+            font-size: 30px;
 
             text-transform: uppercase;
-            border-bottom: 1px solid #969696;
+            border-bottom: 1px solid utils.$border-color;
+
+            @include utils.tablet() {
+                width: 100%;
+
+                font-weight: 200;
+                font-size: 50px;
+
+                text-transform: uppercase;
+                border-bottom: 1px solid utils.$border-color;
+            }
         }
 
         .entry {
@@ -45,85 +62,148 @@
             flex-direction: column;
             gap: 20px;
 
+            background-color: utils.$bg-primary-light;
+            padding: 20px;
+            border-radius: 10px;
+
+            @include utils.tablet() {
+                gap: 20px;
+
+                padding: 20px;
+                border-radius: 20px;
+            }
+
             &_header {
                 display: flex;
-                align-items: center;
-                gap: 30px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+
+                @include utils.tablet() {
+                    flex-direction: row;
+                    align-items: center;
+
+                    gap: 20px;
+                }
 
                 .employer {
                     display: flex;
                     align-items: center;
 
-                    &:hover {
+                    @include utils.tablet() {}
+
+                    @include utils.desktop() {
                         a {
                             img {
-                                animation: rotate360 1.2s linear forwards;
+                                transition: all .4s ease-in-out;
                             }
                         }
 
-                        span {}
+                        &:hover {
+                            a {
+                                img {
+                                    @include utils.expand(1.15, .4s);
+                                }
+                            }
+                        }
                     }
                 }
 
-                .separator {
-                    width: 20px;
-                    height: 1px;
-                    background-color: #ffffff;
+                .dash {
+                    display: none;
+
+                    @include utils.tablet() {
+                        display: block;
+                        width: 20px;
+                        height: 2px;
+
+                        flex-shrink: 0;
+                        background-color: utils.$text-primary;
+                    }
                 }
 
                 .job_title {
-                    font-size: 40px;
+                    font-size: 25px;
                     font-weight: 300;
 
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
+                    @include utils.tablet() {
+                        font-size: 40px;
+
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
                 }
             }
 
             .details {
                 display: flex;
-                align-items: center;
-                gap: 40px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+
+                @include utils.tablet() {
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 40px;
+                }
 
                 .time_period,
                 .location {
                     display: flex;
+                    align-items: center;
                     gap: 10px;
 
-                    font-size: 20px;
-                    font-weight: 500;
-                }
+                    span {
+                        display: block;
+                        line-height: 1;
 
-                .location {}
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+
+                    img {
+                        margin-bottom: 5px;
+                    }
+
+
+                    @include utils.tablet() {
+                        span {
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+                    }
+                }
             }
 
             .description {
-                font-size: 20px;
+                max-width: 100%;
+
+                font-size: 16px;
                 font-weight: 300;
 
+                @include utils.tablet() {
+                    font-size: 20px;
+                }
+
+                @include utils.desktop() {
+                    max-width: 60dvw;
+                }
+
                 ul {
-                    list-style-position: inside;
+                    padding-left: 14px;
+                    list-style-position: outside;
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    gap: 14px;
 
-                    li {}
+                    @include utils.tablet() {
+                        padding-left: 20px;
+                        list-style-position: outside;
+                        gap: 10px;
+                    }
                 }
             }
-        }
-    }
-
-    @include utils.desktop() {
-        padding-inline: 15vw;
-        padding-block: 20vh;
-
-        .dash {
-            display: block;
-            width: 20px;
-            height: 1px;
-            border-width: 1px;
-            border: 1px solid utils.$white;
         }
     }
 }
