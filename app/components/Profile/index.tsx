@@ -1,4 +1,4 @@
-import ProfileImage from '@/components/ProfileImage'
+import ProfileImage from '@/components/Profile/ProfileImage'
 import Image from 'next/image'
 import Link from 'next/link'
 

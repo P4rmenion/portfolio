@@ -1,19 +1,24 @@
-import Profile from '@/components/Profile'
-
-import css from './ProfileSidebar.module.scss'
-import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+
+import Image from 'next/image'
 import { useDarkMode } from '@/scripts/commons'
 
-export const ProfileSidebar = ({
+import css from './Sidebar.module.scss'
+
+export const Sidebar = ({
     open,
     setOpenSidebar,
+    handleLabel,
+    children,
 }: {
     open: boolean
     setOpenSidebar: (open: boolean) => void
+    handleLabel: string
+    children: React.ReactNode
 }) => {
     const darkTheme = useDarkMode()
 
+    // Helper toggle functions.
     const hideSidebar = () => {
         setOpenSidebar(false)
     }
@@ -22,6 +27,7 @@ export const ProfileSidebar = ({
         setOpenSidebar(true)
     }
 
+    // Auto hide sidebar on mobile.
     const sidebar = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -53,9 +59,11 @@ export const ProfileSidebar = ({
                     height={30}
                 />
             </button>
-            <Profile />
+
+            {children}
+
             <div className={css.sidebar_handle}>
-                <span>INFORMATION</span>
+                <span>{handleLabel}</span>
             </div>
         </div>
     )

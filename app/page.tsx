@@ -1,8 +1,9 @@
 'use client'
 
 import Header from '@/components/Header'
-import { ProfileSidebar, SidebarButton } from '@/components/ProfileSidebar'
 import CV from '@/components/CV'
+import Profile from '@/components/Profile'
+import { Sidebar, SidebarButton } from '@/components/Sidebar'
 import { Navigation, NavigationButton } from '@/components/Navigation'
 
 import css from './page.module.scss'
@@ -19,8 +20,12 @@ export default function Home() {
                 <NavigationButton setOpenNavigation={setOpenNavigation} />
             </Header>
 
-            <ProfileSidebar open={openSidebar} setOpenSidebar={setOpenSidebar} />
+            <Sidebar open={openSidebar} setOpenSidebar={setOpenSidebar} handleLabel="Information">
+                <Profile />
+            </Sidebar>
+
             <CV />
+
             <Navigation open={openNavigation} setOpenNavigation={setOpenNavigation} />
         </div>
     )
