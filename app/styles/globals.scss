@@ -1,8 +1,8 @@
 @use 'variables.scss';
 
 :root {
-  --background: $background-light;
-  --foreground: $text-dark;
+  --background: $background-dark;
+  --foreground: $text-light;
 }
 
 @media (prefers-color-scheme: dark) {
