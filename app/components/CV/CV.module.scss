@@ -39,30 +39,45 @@
 
         .section_title {
             width: 100%;
+            height: 45px;
 
-            font-weight: 200;
+            font-weight: 300;
             font-size: 30px;
+
+            span {
+                background-color: utils.$bg-transparent-dark;
+                backdrop-filter: blur(4px);
+                border-radius: 10px;
+                padding-inline: 10px;
+                margin-bottom: 10px;
+            }
 
             text-transform: uppercase;
             border-bottom: 1px solid utils.$border-color;
 
             @include utils.tablet() {
                 width: 100%;
+                height: 70px;
 
-                font-weight: 200;
+                font-weight: 300;
                 font-size: 50px;
 
                 text-transform: uppercase;
                 border-bottom: 1px solid utils.$border-color;
             }
+
+            @include utils.desktop() {}
         }
 
         .entry {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            color: utils.$text-dark;
 
-            background-color: utils.$bg-primary-light;
+            background-color: rgba(255, 255, 255, 0.885);
+            backdrop-filter: blur(4px);
+
             padding: 20px;
             border-radius: 10px;
 
@@ -79,46 +94,41 @@
                 align-items: flex-start;
                 gap: 10px;
 
-                @include utils.tablet() {
-                    flex-direction: row;
-                    align-items: center;
-
-                    gap: 20px;
-                }
-
                 .employer {
+                    width: 100%;
                     display: flex;
+                    flex-direction: row;
+                    gap: 20px;
                     align-items: center;
 
-                    @include utils.tablet() {}
+                    .company_name {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+
+                    @include utils.tablet() {
+                        .company_name {
+                            font-size: 25px;
+                            font-weight: 700;
+                        }
+                    }
 
                     @include utils.desktop() {
-                        a {
+                        .company_logo {
                             img {
                                 transition: all .4s ease-in-out;
                             }
                         }
 
                         &:hover {
-                            a {
+                            .company_logo {
                                 img {
                                     @include utils.expand(1.15, .4s);
                                 }
                             }
                         }
-                    }
-                }
 
-                .dash {
-                    display: none;
-
-                    @include utils.tablet() {
-                        display: block;
-                        width: 20px;
-                        height: 2px;
-
-                        flex-shrink: 0;
-                        background-color: utils.$text-primary;
+                        .company_name {}
                     }
                 }
 
@@ -127,7 +137,7 @@
                     font-weight: 300;
 
                     @include utils.tablet() {
-                        font-size: 40px;
+                        font-size: 35px;
 
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -159,7 +169,7 @@
                         line-height: 1;
 
                         font-size: 16px;
-                        font-weight: 400;
+                        font-weight: 350;
                     }
 
                     img {
@@ -170,7 +180,6 @@
                     @include utils.tablet() {
                         span {
                             font-size: 20px;
-                            font-weight: 500;
                         }
                     }
                 }
@@ -180,7 +189,7 @@
                 max-width: 100%;
 
                 font-size: 16px;
-                font-weight: 300;
+                font-weight: 400;
 
                 @include utils.tablet() {
                     font-size: 20px;

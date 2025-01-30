@@ -8,20 +8,20 @@ const CV = () => {
     return (
         <main className={css.cv}>
             <section id="experience" className={css.experience}>
-                <h2 className={css.section_title}>Experience</h2>
+                <h2 className={css.section_title}>
+                    <span>Experience</span>
+                </h2>
                 <div className={`${css.entry} ${josefin_sans.className}`}>
                     <div className={css.entry_header}>
                         <div className={css.employer}>
-                            <Link href="https://www.deloitte.com" target="_blank">
-                                <Image
-                                    src="/icons/companies/deloitte.svg"
-                                    alt="Deloitte Logo"
-                                    width={140}
-                                    height={50}
-                                />
+                            <Link
+                                className={css.company_logo}
+                                href="https://www.deloitte.com"
+                                target="_blank"
+                            >
+                                <span className={css.company_name}>Deloitte Digital</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>Frontend Engineer</span>
                     </div>
 
@@ -50,8 +50,7 @@ const CV = () => {
                     <div className={css.description}>
                         <ul>
                             <li>
-                                Developed complete web UIs for internal activities (Deloitte
-                                Digital) and external clients.
+                                Developed complete web UIs for internal activities and external clients.
                             </li>
                             <li>
                                 Built web pages in NextJS, integrated with client&apos;s mobile
@@ -70,20 +69,20 @@ const CV = () => {
                 </div>
             </section>
             <section id="education" className={css.education}>
-                <h2 className={css.section_title}>Education</h2>
+                <h2 className={css.section_title}>
+                    <span>Education</span>
+                </h2>
                 <div className={`${css.entry} ${josefin_sans.className}`}>
                     <div className={css.entry_header}>
                         <div className={css.employer}>
-                            <Link href="https://www.auth.gr/en/" target="_blank">
-                                <Image
-                                    src="/icons/universities/auth.svg"
-                                    alt="Aristotle University Logo"
-                                    width={90}
-                                    height={90}
-                                />
+                            <Link
+                                className={css.company_logo}
+                                href="https://www.auth.gr/en/"
+                                target="_blank"
+                            >
+                                <span className={css.company_name}>Aristotle University</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>BSc Computer Science</span>
                     </div>
 
@@ -112,7 +111,7 @@ const CV = () => {
                     <div className={css.description}>
                         <ul>
                             <li>
-                                Studied fundamentals of computer science across most disciplines.
+                                Studied fundamentals of computer science across multiple disciplines.
                             </li>
                             <li>
                                 Majored in <strong>Artificial Intelligence</strong>, as well as{' '}
@@ -126,18 +125,13 @@ const CV = () => {
                     <div className={css.entry_header}>
                         <div className={css.employer}>
                             <Link
+                                className={css.company_logo}
                                 href="https://www.mdu.se/en/malardalen-university"
                                 target="_blank"
                             >
-                                <Image
-                                    src="/icons/universities/mdu.svg"
-                                    alt="Malardalens University Logo"
-                                    width={100}
-                                    height={80}
-                                />
+                                <span className={css.company_name}>Mälardalens University</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>Erasmus+ Exchange Semester</span>
                     </div>
 
@@ -175,20 +169,20 @@ const CV = () => {
                 </div>
             </section>
             <section id="volunteering" className={css.volunteering}>
-                <h2 className={css.section_title}>Volunteering</h2>
+                <h2 className={css.section_title}>
+                    <span>Volunteering</span>
+                </h2>
                 <div className={`${css.entry} ${josefin_sans.className}`}>
                     <div className={css.entry_header}>
                         <div className={css.employer}>
-                            <Link href="https://pplg.org" target="_blank">
-                                <Image
-                                    src="/icons/organisations/pplg.png"
-                                    alt="PPLG Logo"
-                                    width={130}
-                                    height={54}
-                                />
+                            <Link
+                                className={css.company_logo}
+                                href="https://pplg.org"
+                                target="_blank"
+                            >
+                                <span className={css.company_name}>Play Perform Learn Grow</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>Tech Support</span>
                     </div>
 
@@ -224,16 +218,14 @@ const CV = () => {
                 <div className={`${css.entry} ${josefin_sans.className}`}>
                     <div className={css.entry_header}>
                         <div className={css.employer}>
-                            <Link href="https://arsis.gr" target="_blank">
-                                <Image
-                                    src="/icons/organisations/arsis.svg"
-                                    alt="Arsis Logo"
-                                    width={130}
-                                    height={90}
-                                />
+                            <Link
+                                className={css.company_logo}
+                                href="https://arsis.gr"
+                                target="_blank"
+                            >
+                                <span className={css.company_name}>ARSIS</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>Computers Class Teacher</span>
                     </div>
 
@@ -272,16 +264,14 @@ const CV = () => {
                 <div className={`${css.entry} ${josefin_sans.className}`}>
                     <div className={css.entry_header}>
                         <div className={css.employer}>
-                            <Link href="https://aiesec.org" target="_blank">
-                                <Image
-                                    src="/icons/organisations/aiesec.png"
-                                    alt="AIESEC Logo"
-                                    width={290}
-                                    height={60}
-                                />
+                            <Link
+                                className={css.company_logo}
+                                href="https://aiesec.org"
+                                target="_blank"
+                            >
+                                <span className={css.company_name}>AIESEC</span>
                             </Link>
                         </div>
-                        <div className={css.dash}></div>
                         <span className={css.job_title}>OGV Manager</span>
                     </div>
 

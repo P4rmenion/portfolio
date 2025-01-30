@@ -4,7 +4,7 @@
     position: fixed;
     right: 0;
     top: 50%;
-    transform: translateY(-50%) translateX(calc(100%));
+    transform: translateY(-50%) translateX(calc(100% + 30px));
 
     width: 100dvw;
     height: 100dvh;
@@ -19,6 +19,7 @@
     color: utils.$text-primary;
     flex-shrink: 0;
     transition: all .3s ease-in-out;
+    z-index: 2;
 
     &_open {
         transform: translateY(-50%);
@@ -31,15 +32,15 @@
         align-items: center;
         justify-content: center;
 
-        width: 40px;
-        height: 40px;
-
         position: absolute;
         top: 30px;
-        right: 20px;
+        right: 30px;
+
+        width: 20px;
+        height: 20px;
 
         padding: 10px;
-        background-color: utils.$bg-gray;
+        background-color: utils.$white;
         border-radius: 100%;
 
         z-index: 2;
@@ -65,7 +66,7 @@
         border-bottom: 2px solid utils.$separator-color;
 
         font-size: 25px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
 
         margin-bottom: 30px;
@@ -73,7 +74,7 @@
 
     a {
         span {
-            font-weight: 200;
+            font-weight: 400;
             font-size: 30px;
             text-transform: uppercase;
             display: block;
@@ -99,15 +100,15 @@
     }
 
     @include utils.desktop() {
-        width: 400px;
+        width: 370px;
         height: 60vh;
         position: fixed;
 
-        margin-right: 40px;
-        padding: 20px;
+        margin-right: 30px;
+        padding: 30px;
 
         box-shadow: 0 currentColor;
-        border-right: 1px dashed utils.$border-color;
+        border-right: 1px solid utils.$border-color;
         border-left: none;
         border-radius: 50px 0 0 50px;
 
@@ -141,7 +142,7 @@
             padding-left: 10px;
 
             span {
-                font-weight: 200;
+                font-weight: 300;
                 font-size: 40px;
                 text-transform: uppercase;
                 display: block;
@@ -169,7 +170,7 @@
 
             position: absolute;
             top: 0;
-            right: 100%;
+            right: calc(100% + 30px);
 
             width: 70px;
             height: 100%;
@@ -180,7 +181,7 @@
             justify-content: center;
 
             span {
-                font-weight: 200;
+                font-weight: 300;
                 font-size: 40px;
                 line-height: 1;
                 text-transform: uppercase;

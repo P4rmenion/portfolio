@@ -6,7 +6,7 @@
 
     padding: 80px 20px;
     background-color: black;
-    border-right: 1px dashed #969696;
+    border-right: 1px solid utils.$white;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -45,7 +45,6 @@
         direction: ltr;
 
         padding-block: 20px;
-        font-weight: 500;
 
         display: flex;
         flex-direction: column;
@@ -56,17 +55,10 @@
         }
 
         .quote {
-            font-weight: 300;
+            font-weight: 400;
             font-size: 20px;
             font-style: italic;
             quotes: "“" "”";
-
-            @include utils.tablet() {
-                font-weight: 300;
-                font-size: 20px;
-                font-style: italic;
-                quotes: "“" "”";
-            }
         }
 
         .contact {
@@ -191,13 +183,10 @@
 
                 img {
                     @include utils.desktop() {
-                        filter: grayscale(100%);
                         transition: all .3s ease-in-out;
 
                         &:hover {
-                            filter: grayscale(0);
                             transform: scale3d(1.5, 1.5, 1.5);
-                            transition: filter .3s ease-in-out, transform .4s ease-in-out;
                         }
                     }
                 }

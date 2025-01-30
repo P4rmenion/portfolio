@@ -30,7 +30,6 @@
 
             @include utils.desktop() {
                 max-width: none;
-                filter: grayscale(100%);
 
                 transition: all 0.2s ease-in-out;
                 background-color: transparent;
@@ -64,7 +63,6 @@
                 img {
                     transition: all 0.2s ease-in-out;
                     border: 8px solid utils.$text-primary;
-                    filter: grayscale(0%);
                 }
             }
 

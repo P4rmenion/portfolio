@@ -12,6 +12,7 @@
 
     transform: translateX(0%);
     transition: all .4s ease-in-out;
+    z-index: 2;
 
     &.hidden {
         transform: translateX(-100%);
@@ -24,15 +25,15 @@
         align-items: center;
         justify-content: center;
 
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
 
         position: absolute;
         top: 30px;
-        right: 20px;
+        right: 30px;
 
         padding: 10px;
-        background-color: utils.$bg-gray;
+        background-color: utils.$white;
         border-radius: 100%;
 
         z-index: 2;
@@ -65,7 +66,7 @@
             margin-left: 30px;
 
             background-color: transparent;
-            color: white;
+            color: utils.$text-primary;
             box-shadow: 0 currentColor;
             border-left: 1px solid #969696;
 
@@ -78,7 +79,7 @@
             span {
                 display: block;
 
-                font-weight: 200;
+                font-weight: 300;
                 font-size: 40px;
                 line-height: 1;
                 text-transform: uppercase;
