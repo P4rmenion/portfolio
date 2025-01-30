@@ -5,16 +5,17 @@
     width: 100vw;
     position: relative;
 
-    background-image: url('/images/white-swirl.png');
+    background-image: url('/images/white-swirl.png'), url('/images/white-vertical-swirl.png');
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: 70vw;
-    background-position: right center;
+    background-position: right 5vh top 30vh, left 5vh bottom 40vh;
 
     @include utils.desktop() {
-        background-size:  60vh;
+        background-image: url('/images/white-swirl.png');
+        background-size: 60vh;
         background-position: right 15vw center;
         background-attachment: fixed;
     }
