@@ -1,5 +1,3 @@
-
-
 import css from './Header.module.scss'
 
 import { useEffect, useRef, type ReactNode } from 'react'
@@ -15,8 +13,11 @@ const Header = ({ children }: { children: ReactNode }) => {
         document.addEventListener('scroll', () => {
             if (header.current)
                 header.current.style.transform =
-                    window.scrollY > scrollY.current ? `translateY(-100%)` : `translateY(0)`
+                    window.scrollY > scrollY.current && window.scrollY > 20
+                        ? `translateY(-100%)`
+                        : `translateY(0)`
 
+            console.log(window.scrollY, scrollY.current)
             scrollY.current = window.scrollY
         })
     }, [])
