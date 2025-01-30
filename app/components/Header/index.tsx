@@ -17,7 +17,6 @@ const Header = ({ children }: { children: ReactNode }) => {
                         ? `translateY(-100%)`
                         : `translateY(0)`
 
-            console.log(window.scrollY, scrollY.current)
             scrollY.current = window.scrollY
         })
     }, [])

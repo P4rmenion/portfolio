@@ -3,6 +3,7 @@ import Profile from '@/components/Profile'
 import css from './ProfileSidebar.module.scss'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { useDarkMode } from '@/scripts/commons'
 
 export const ProfileSidebar = ({
     open,
@@ -11,6 +12,8 @@ export const ProfileSidebar = ({
     open: boolean
     setOpenSidebar: (open: boolean) => void
 }) => {
+    const darkTheme = useDarkMode()
+
     const hideSidebar = () => {
         setOpenSidebar(false)
     }
@@ -43,7 +46,12 @@ export const ProfileSidebar = ({
             ref={sidebar}
         >
             <button className={css.sidebar_close_button} onClick={hideSidebar}>
-                <Image src={'/icons/general/close.svg'} alt="Close Icon" width={30} height={30} />
+                <Image
+                    src={darkTheme ? '/icons/general/close-black.svg' : '/icons/general/close.svg'}
+                    alt="Close Icon"
+                    width={30}
+                    height={30}
+                />
             </button>
             <Profile />
             <div className={css.sidebar_handle}>
@@ -54,11 +62,13 @@ export const ProfileSidebar = ({
 }
 
 export const SidebarButton = ({ setOpenSidebar }: { setOpenSidebar: (open: boolean) => void }) => {
+    const darkTheme = useDarkMode()
+
     return (
         <button className={css.sidebar_open_button} onClick={() => setOpenSidebar(true)}>
             <Image
                 id="sidebar-button"
-                src={'/icons/general/info.svg'}
+                src={darkTheme ? '/icons/general/info.svg' : '/icons/general/info-black.svg'}
                 alt="Info Icon"
                 width={35}
                 height={35}

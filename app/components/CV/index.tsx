@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useDarkMode } from '@/scripts/commons'
 
 import { josefin_sans } from '@/fonts'
 import css from './CV.module.scss'
 
 const CV = () => {
+    const darkTheme = useDarkMode()
+
     return (
         <main className={css.cv}>
             <section id="experience" className={css.experience}>
@@ -28,7 +31,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -38,7 +45,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}
@@ -50,7 +61,8 @@ const CV = () => {
                     <div className={css.description}>
                         <ul>
                             <li>
-                                Developed complete web UIs for internal activities and external clients.
+                                Developed complete web UIs for internal activities and external
+                                clients.
                             </li>
                             <li>
                                 Built web pages in NextJS, integrated with client&apos;s mobile
@@ -89,7 +101,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -99,7 +115,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}
@@ -111,7 +131,8 @@ const CV = () => {
                     <div className={css.description}>
                         <ul>
                             <li>
-                                Studied fundamentals of computer science across multiple disciplines.
+                                Studied fundamentals of computer science across multiple
+                                disciplines.
                             </li>
                             <li>
                                 Majored in <strong>Artificial Intelligence</strong>, as well as{' '}
@@ -138,7 +159,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -148,7 +173,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}
@@ -189,7 +218,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -199,7 +232,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}
@@ -232,7 +269,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -242,7 +283,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}
@@ -278,7 +323,11 @@ const CV = () => {
                     <div className={css.details}>
                         <div className={css.time_period}>
                             <Image
-                                src="/icons/general/calendar.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/calendar.svg'
+                                        : '/icons/general/calendar-black.svg'
+                                }
                                 alt="Calendar Icon"
                                 width={20}
                                 height={20}
@@ -288,7 +337,11 @@ const CV = () => {
 
                         <div className={css.location}>
                             <Image
-                                src="/icons/general/location.svg"
+                                src={
+                                    darkTheme
+                                        ? '/icons/general/location.svg'
+                                        : '/icons/general/location-black.svg'
+                                }
                                 alt="Location Icon"
                                 width={20}
                                 height={20}

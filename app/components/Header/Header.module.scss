@@ -1,13 +1,13 @@
 @use '@styles/utils';
 
 .header {
-    background-color: utils.$bg-transparent-darker;
+    background-color: utils.$bg-transparent-light;
     backdrop-filter: blur(6px);
 
     width: 100vw;
     padding-block: 14px;
     padding-inline: 6dvw;
-    border-bottom: 1px solid utils.$border-color;
+    border-bottom: 1px solid utils.$border-color-dark;
 
     position: fixed;
     top: 0;
@@ -19,6 +19,11 @@
 
     z-index: 1;
     transition: all .2s ease-in-out;
+
+    @include utils.darkMode() {
+        background-color: utils.$bg-transparent-dark;
+        border-bottom: 1px solid utils.$border-color-light;
+    }
 
     button {
         all: unset;

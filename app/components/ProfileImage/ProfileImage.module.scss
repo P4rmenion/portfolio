@@ -8,8 +8,12 @@
     align-items: center;
     justify-content: center;
 
-    border-bottom: 2px solid utils.$text-primary;
+    border-bottom: 2px solid utils.$border-color-dark;
     overflow: hidden;
+
+    @include utils.darkMode() {
+        border-bottom: 2px solid utils.$border-color-light;
+    }
 
     .image_link {
         position: relative;
@@ -22,11 +26,14 @@
             object-position: top - 50px;
 
             max-width: 220px;
-
             background-color: transparent;
 
             border-radius: 9999px;
-            border: 2px solid utils.$text-primary;
+            border: 4px solid utils.$border-color-dark;
+
+            @include utils.darkMode() {
+                border: 4px solid utils.$border-color-light;
+            }
 
             @include utils.desktop() {
                 max-width: none;
@@ -62,7 +69,11 @@
             .image_link {
                 img {
                     transition: all 0.2s ease-in-out;
-                    border: 8px solid utils.$text-primary;
+                    border: 12px solid utils.$border-color-dark;
+
+                    @include utils.darkMode() {
+                        border: 12px solid utils.$border-color-light;
+                    }
                 }
             }
 

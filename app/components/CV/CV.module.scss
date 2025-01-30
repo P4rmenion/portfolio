@@ -27,11 +27,15 @@
 
     section {
         width: 100%;
-        color: utils.$text-primary;
+        color: utils.$text-dark;
 
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        @include utils.darkMode() {
+            color: utils.$text-light;
+        }
 
         @include utils.tablet() {
             gap: 50px;
@@ -45,15 +49,23 @@
             font-size: 30px;
 
             span {
-                background-color: utils.$bg-transparent-dark;
-                backdrop-filter: blur(4px);
+                background-color: transparent;
+                backdrop-filter: blur(8px);
                 border-radius: 10px;
                 padding-inline: 10px;
                 margin-bottom: 10px;
+
+                @include utils.darkMode() {
+                    background-color: utils.$bg-transparent-dark;
+                }
             }
 
             text-transform: uppercase;
-            border-bottom: 1px solid utils.$border-color;
+            border-bottom: 1px solid utils.$border-color-dark;
+
+            @include utils.darkMode() {
+                border-bottom: 1px solid utils.$border-color-light;
+            }
 
             @include utils.tablet() {
                 width: 100%;
@@ -63,7 +75,6 @@
                 font-size: 50px;
 
                 text-transform: uppercase;
-                border-bottom: 1px solid utils.$border-color;
             }
 
             @include utils.desktop() {}
@@ -73,13 +84,16 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            color: utils.$text-light;
 
-            background-color: rgba(14, 14, 14, 0.885);
+            background-color: utils.$bg-transparent-light;
             backdrop-filter: blur(4px);
 
             padding: 20px;
             border-radius: 10px;
+
+            @include utils.darkMode() {
+                background-color: utils.$bg-transparent-dark;
+            }
 
             @include utils.tablet() {
                 gap: 20px;

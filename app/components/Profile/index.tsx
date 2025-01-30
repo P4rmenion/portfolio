@@ -1,11 +1,15 @@
 import ProfileImage from '@/components/ProfileImage'
 import Image from 'next/image'
-import { josefin_sans } from '@/fonts'
-
-import css from './Profile.module.scss'
 import Link from 'next/link'
 
+import { useDarkMode } from '@/scripts/commons'
+
+import { josefin_sans } from '@/fonts'
+import css from './Profile.module.scss'
+
 const Profile = () => {
+    const darkTheme = useDarkMode()
+
     return (
         <div className={css.profile}>
             <div className={css.image_container}>
@@ -25,7 +29,11 @@ const Profile = () => {
                                 target="_blank"
                             >
                                 <Image
-                                    src={'/icons/media/linkedin.svg'}
+                                    src={
+                                        darkTheme
+                                            ? '/icons/media/linkedin.svg'
+                                            : '/icons/media/linkedin-black.svg'
+                                    }
                                     width={30}
                                     height={30}
                                     alt="LinkedIn Icon"
@@ -34,7 +42,11 @@ const Profile = () => {
                             </Link>
                             <Link href={'https://github.com/P4rmenion'} target="_blank">
                                 <Image
-                                    src={'/icons/media/github.svg'}
+                                    src={
+                                        darkTheme
+                                            ? '/icons/media/github.svg'
+                                            : '/icons/media/github-black.svg'
+                                    }
                                     width={30}
                                     height={30}
                                     alt="Github Icon"
@@ -43,7 +55,11 @@ const Profile = () => {
                             </Link>
                             <Link href={'mailto:parmenion.char@gmail.com'} target="_blank">
                                 <Image
-                                    src={'/icons/media/email.svg'}
+                                    src={
+                                        darkTheme
+                                            ? '/icons/media/email.svg'
+                                            : '/icons/media/email-black.svg'
+                                    }
                                     width={30}
                                     height={30}
                                     alt="Email Icon"
@@ -52,7 +68,11 @@ const Profile = () => {
                             </Link>
                             <Link href={'tel:+306972742397'} target="_blank">
                                 <Image
-                                    src={'/icons/media/phone.svg'}
+                                    src={
+                                        darkTheme
+                                            ? '/icons/media/phone.svg'
+                                            : '/icons/media/phone-black.svg'
+                                    }
                                     width={30}
                                     height={30}
                                     alt="Phone Icon"
@@ -88,7 +108,11 @@ const Profile = () => {
 
                             <Link href={'https://nextjs.org'} target="_blank">
                                 <Image
-                                    src={'/icons/tech/next.svg'}
+                                    src={
+                                        darkTheme
+                                            ? '/icons/tech/next.svg'
+                                            : '/icons/tech/next-black.svg'
+                                    }
                                     width={50}
                                     height={50}
                                     alt="NextJS Icon"

@@ -1,25 +1,22 @@
 // Base Colors
 $black: #000000;
 $white: #ffffff;
+$off-white: #dad9d9;
 
-// Background Colors
-$bg-primary: $black;
-$bg-primary-light: #292929;
-$bg-transparent: transparent;
-$bg-transparent-dark: rgba(0, 0, 0, 0.25);
-$bg-transparent-darker: rgba(0, 0, 0, 0.5);
+// Background System Colors
+$background-light: $off-white;
+$background-dark: $black;
+
+$bg-transparent-light: rgba(255, 255, 255, 0.75);
+$bg-transparent-dark: rgba(0, 0, 0, 0.75);
 $bg-gray: #333333;
+$bg-white: $white;
 
 // Text Colors
-$text-primary: $white;
 $text-dark: $black;
 $text-light: $white;
 
 // Border Colors
-$separator-color: #ffffff5b;
-$border-color: #969696;
+$border-color-light: $white;
+$border-color-dark: $black;
 $border-color-transparent: transparent;
-
-// Background System Colors
-$background-light: $white;
-$background-dark: $black;

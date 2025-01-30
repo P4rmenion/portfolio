@@ -5,14 +5,19 @@
     height: 100%;
 
     padding: 80px 30px;
-    background-color: utils.$bg-transparent-darker;
+    background-color: utils.$bg-transparent-light;
     backdrop-filter: blur(4px);
 
-    border-right: 1px dashed utils.$white;
+    border-right: 2px dashed utils.$border-color-dark;
 
     overflow-y: scroll;
     overflow-x: hidden;
     direction: rtl;
+
+    @include utils.darkMode() {
+        border-right: 2px dashed utils.$border-color-light;
+        background-color: utils.$bg-transparent-dark;
+    }
 
     /* Internet Explorer 10+ */
     -ms-overflow-style: none;
@@ -67,12 +72,16 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            border-top: 1px solid #ffffff5b;
+            border-top: 1px solid utils.$border-color-dark;
             padding-top: 20px;
 
             font-weight: 300;
             font-size: 20px;
             line-height: 1;
+
+            @include utils.darkMode() {
+                border-top: 1px solid utils.$border-color-light;
+            }
 
             @include utils.tablet() {}
 
@@ -85,13 +94,18 @@
 
                 span {
                     width: max-content;
-                    background-color: white;
-                    color: black;
+                    background-color: utils.$background-dark;
+                    color: utils.$text-light;
                     font-weight: 400;
                     line-height: 1;
                     padding: 5px 12px;
                     border-radius: 0 100px 100px 0;
                     vertical-align: middle;
+
+                    @include utils.darkMode() {
+                        background-color: utils.$background-light;
+                        color: utils.$text-dark;
+                    }
 
                     @include utils.tablet() {}
                 }
@@ -112,8 +126,12 @@
                         span {
                             all: unset;
                             display: block;
-                            background-color: black;
+                            background-color: utils.$background-light;
                             width: max-content;
+
+                            @include utils.darkMode() {
+                                background-color: utils.$background-dark;
+                            }
                         }
 
                         &:hover {
@@ -141,7 +159,9 @@
                     .link_text {
                         padding: 5px 10px;
                         border-radius: 20px;
-                        border: 1px solid #ffffff5b;
+                        border: 2px solid utils.$border-color-dark;
+                        background-color: utils.$bg-white;
+                        line-height: 1;
 
                         position: absolute;
                         top: 40px;
@@ -152,6 +172,11 @@
                         z-index: -1;
 
                         transition: all .2s ease-in-out;
+
+                        @include utils.darkMode() {
+                            border: 2px solid utils.$border-color-light;
+                            background-color: utils.$background-dark;
+                        }
                     }
                 }
             }
@@ -161,8 +186,12 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            border-top: 1px solid #ffffff5b;
+            border-top: 1px solid utils.$border-color-dark;
             padding-top: 20px;
+
+            @include utils.darkMode() {
+                border-top: 1px solid utils.$border-color-light;
+            }
 
             @include utils.tablet() {}
 

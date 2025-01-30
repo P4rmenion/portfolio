@@ -33,11 +33,15 @@
         right: 30px;
 
         padding: 10px;
-        background-color: utils.$white;
+        background-color: utils.$bg-transparent-dark;
         border-radius: 100%;
 
         z-index: 2;
         cursor: pointer;
+
+        @include utils.darkMode() {
+            background-color: utils.$white;
+        }
     }
 
     &_handle {
@@ -66,15 +70,20 @@
             margin-left: 30px;
 
             background-color: transparent;
-            color: utils.$text-primary;
+            color: utils.$text-dark;
             box-shadow: 0 currentColor;
-            border-left: 1px solid #969696;
+            border-left: 1px solid utils.$border-color-dark;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
             transition: all .3s ease-in-out;
+
+            @include utils.darkMode() {
+                color: utils.$text-light;
+                border-left: 1px solid utils.$border-color-light;
+            }
 
             span {
                 display: block;

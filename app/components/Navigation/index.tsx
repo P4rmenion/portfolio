@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { useDarkMode } from '@/scripts/commons'
 
 import css from './Navigation.module.scss'
 
@@ -10,6 +11,8 @@ export const Navigation = ({
     open: boolean
     setOpenNavigation: (open: boolean) => void
 }) => {
+    const darkTheme = useDarkMode()
+
     const hideNavigation = () => {
         setOpenNavigation(false)
     }
@@ -24,11 +27,7 @@ export const Navigation = ({
         document.addEventListener('click', (event) => {
             const target = event.target as HTMLElement
 
-            if (
-                nav.current &&
-                !nav.current.contains(target) &&
-                target.id !== 'navigation-button'
-            ) {
+            if (nav.current && !nav.current.contains(target) && target.id !== 'navigation-button') {
                 setOpenNavigation(false)
             }
         })
@@ -37,7 +36,12 @@ export const Navigation = ({
     return (
         <div className={`${css.navigation} ${open && css.navigation_open}`} ref={nav}>
             <button className={css.navigation_close_button} onClick={hideNavigation}>
-                <Image src={'/icons/general/close.svg'} alt="Close Icon" width={30} height={30} />
+                <Image
+                    src={darkTheme ? '/icons/general/close-black.svg' : '/icons/general/close.svg'}
+                    alt="Close Icon"
+                    width={30}
+                    height={30}
+                />
             </button>
 
             <div className={css.navigation_content}>
@@ -69,11 +73,13 @@ export const NavigationButton = ({
 }: {
     setOpenNavigation: (open: boolean) => void
 }) => {
+    const darkTheme = useDarkMode()
+
     return (
         <button className={css.navigation_open_button} onClick={() => setOpenNavigation(true)}>
             <Image
                 id="navigation-button"
-                src={'/icons/general/map.svg'}
+                src={darkTheme ? '/icons/general/map.svg' : '/icons/general/map-black.svg'}
                 alt="Map Icon"
                 width={35}
                 height={35}

@@ -12,14 +12,20 @@
     padding-inline: 40px;
     padding-block: 120px;
 
-    border-left: 1px dashed white;
-    background-color: utils.$bg-transparent-darker;
+    border-left: 2px dashed white;
     backdrop-filter: blur(4px);
+    background-color: utils.$bg-transparent-light;
 
-    color: utils.$text-primary;
+    color: utils.$text-dark;
     flex-shrink: 0;
     transition: all .3s ease-in-out;
     z-index: 2;
+
+
+    @include utils.darkMode() {
+        background-color: utils.$bg-transparent-dark;
+        color: utils.$text-light;
+    }
 
     &_open {
         transform: translateY(-50%);
@@ -39,12 +45,16 @@
         width: 20px;
         height: 20px;
 
+        background-color: utils.$black;
         padding: 10px;
-        background-color: utils.$white;
         border-radius: 100%;
 
         z-index: 2;
         cursor: pointer;
+
+        @include utils.darkMode() {
+            background-color: utils.$white;
+        }
     }
 
     &_content {
@@ -63,13 +73,17 @@
         width: 100%;
 
         padding-block: 0px;
-        border-bottom: 2px solid utils.$separator-color;
+        border-bottom: 2px solid utils.$border-color-dark;
 
         font-size: 25px;
         font-weight: 400;
         text-transform: uppercase;
 
         margin-bottom: 30px;
+
+        @include utils.darkMode() {
+            border-bottom: 2px solid utils.$border-color-light;
+        }
     }
 
     a {
@@ -108,7 +122,7 @@
         padding: 30px;
 
         box-shadow: 0 currentColor;
-        border-right: 1px solid utils.$border-color;
+        border-right: 1px solid utils.$border-color-dark;
         border-left: none;
         border-radius: 50px 0 0 50px;
 
@@ -174,11 +188,15 @@
 
             width: 70px;
             height: 100%;
-            border-right: 1px solid utils.$border-color;
+            border-right: 1px solid utils.$border-color-dark;
 
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @include utils.darkMode() {
+                border-right: 1px solid utils.$border-color-light;
+            }
 
             span {
                 font-weight: 300;
