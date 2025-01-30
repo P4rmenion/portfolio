@@ -1,9 +1,30 @@
 import css from './Header.module.scss'
 
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 const Header = ({ children }: { children: ReactNode }) => {
-    return <header className={css.header}>{children}</header>
+    const header = useRef<HTMLDivElement>(null)
+
+    // Keep track of scroll value.
+    const scrollY = useRef<number>(0)
+    scrollY.current = window.scrollY
+
+    // Add scroll listener to hide/show the header.
+    useEffect(() => {
+        document.addEventListener('scroll', () => {
+            if (header.current)
+                header.current.style.transform =
+                    window.scrollY > scrollY.current ? `translateY(-100%)` : `translateY(0)`
+
+            scrollY.current = window.scrollY
+        })
+    }, [])
+
+    return (
+        <header ref={header} className={css.header}>
+            {children}
+        </header>
+    )
 }
 
 export default Header
