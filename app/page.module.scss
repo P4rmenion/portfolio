@@ -11,7 +11,7 @@
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: 70vw, 80vw;
-    background-position: right -10vh top 30vh, left -30vw bottom 40vh;
+    background-position: right -20vw top 100vw, left -30vw bottom 80vw;
 
     @include utils.desktop() {
         background-image: url('/images/white-swirl.png');
