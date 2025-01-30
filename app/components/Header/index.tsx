@@ -1,3 +1,5 @@
+
+
 import css from './Header.module.scss'
 
 import { useEffect, useRef, type ReactNode } from 'react'
@@ -7,7 +9,6 @@ const Header = ({ children }: { children: ReactNode }) => {
 
     // Keep track of scroll value.
     const scrollY = useRef<number>(0)
-    scrollY.current = window.scrollY
 
     // Add scroll listener to hide/show the header.
     useEffect(() => {
