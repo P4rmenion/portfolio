@@ -60,8 +60,8 @@ export const SidebarButton = ({ setOpenSidebar }: { setOpenSidebar: (open: boole
                 id="sidebar-button"
                 src={'/icons/general/info.svg'}
                 alt="Info Icon"
-                width={45}
-                height={45}
+                width={35}
+                height={35}
             />
         </button>
     )

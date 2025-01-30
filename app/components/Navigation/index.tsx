@@ -75,8 +75,8 @@ export const NavigationButton = ({
                 id="navigation-button"
                 src={'/icons/general/map.svg'}
                 alt="Map Icon"
-                width={45}
-                height={45}
+                width={35}
+                height={35}
             />
         </button>
     )

@@ -1,11 +1,11 @@
 @use '@styles/utils';
 
 .header {
-    background-color: utils.$bg-transparent-dark;
+    background-color: utils.$bg-transparent-darker;
     backdrop-filter: blur(6px);
 
     width: 100vw;
-    padding-block: 20px;
+    padding-block: 14px;
     padding-inline: 6dvw;
     border-bottom: 1px solid utils.$border-color;
 

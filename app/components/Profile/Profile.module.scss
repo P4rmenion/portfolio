@@ -5,7 +5,9 @@
     height: 100%;
 
     padding: 80px 30px;
-    background-color: black;
+    background-color: utils.$bg-transparent-darker;
+    backdrop-filter: blur(4px);
+
     border-right: 1px dashed utils.$white;
 
     overflow-y: scroll;

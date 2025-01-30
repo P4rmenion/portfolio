@@ -10,11 +10,12 @@
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 60vw;
-    background-position: right bottom;
+    background-size: 70vw;
+    background-position: right center;
 
     @include utils.desktop() {
-        background-size: 50vw;
-        background-position: right top;
+        background-size:  60vh;
+        background-position: right 15vw center;
+        background-attachment: fixed;
     }
 }
