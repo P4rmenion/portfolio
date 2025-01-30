@@ -4,9 +4,9 @@
     width: 100dvw;
     height: 100%;
 
-    padding: 80px 20px;
+    padding: 80px 30px;
     background-color: black;
-    border-right: 1px solid utils.$white;
+    border-right: 1px dashed utils.$white;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -41,7 +41,7 @@
     }
 
     .bio {
-        width: 90%;
+        width: 100%;
         direction: ltr;
 
         padding-block: 20px;
@@ -69,7 +69,7 @@
             padding-top: 20px;
 
             font-weight: 300;
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1;
 
             @include utils.tablet() {}
@@ -166,7 +166,7 @@
 
             span {
                 font-weight: 300;
-                font-size: 18px;
+                font-size: 20px;
                 margin-bottom: 10px;
 
                 @include utils.tablet() {}
