@@ -106,7 +106,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 20px;
 
                 .employer {
                     width: 100%;
@@ -237,7 +237,7 @@
                     @include utils.tablet() {
                         padding-left: 20px;
                         list-style-position: outside;
-                        gap: 10px;
+                        gap: 16px;
                     }
                 }
             }

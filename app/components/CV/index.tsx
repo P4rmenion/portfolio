@@ -62,19 +62,31 @@ const CV = () => {
                         <ul>
                             <li>
                                 Developed complete web UIs for internal activities and external
-                                clients.
+                                clients (<strong>React, TailwindCSS</strong>).
                             </li>
                             <li>
-                                Built web pages in NextJS, integrated with client&apos;s mobile
-                                application.
+                                Integrated REST APIs to provide users analytics in real-time.
+                                Included localization for several countries (
+                                <strong>React, i18n</strong>).
                             </li>
                             <li>
-                                Implemented services within NextJS server components to boost
-                                security and performance.
+                                Programmed custom solution for location suggestions based on the
+                                users&apos; history, location and live input autocompletion by
+                                reusing existing information to reduce API calls and improve
+                                performance (<strong>React, Google Maps Javascript API</strong>).
                             </li>
                             <li>
-                                Collaborated within international teams to build atop existing
-                                client infrastructure.
+                                Performed code reviews and provided constructive feedback. Monitored
+                                and managed PR requests for project scopes.
+                            </li>
+                            <li>
+                                Built and integrated web interfaces with client&apos;s mobile
+                                application (<strong>NextJS Server Components, SCSS</strong>).
+                            </li>
+                            <li>
+                                Built lightweight animations to improve user experience, by
+                                strategically targetting interactive elements (
+                                <strong>JavaScript, GSAP, ImageMagick</strong>).
                             </li>
                         </ul>
                     </div>

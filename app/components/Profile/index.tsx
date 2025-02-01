@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import ProfileImage from '@/components/Profile/ProfileImage'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,6 +11,7 @@ import css from './Profile.module.scss'
 
 const Profile = () => {
     const darkTheme = useDarkMode()
+    const [listView, setListView] = useState(false)
 
     return (
         <div className={css.profile}>
@@ -84,8 +87,41 @@ const Profile = () => {
 
                     <div className={css.outro}>
                         <span>A dev is only as good as their tech</span>
-                        
-                        <div className={css.technologies}>
+                        <div className={css.tech_view}>
+                            <span>{listView ? 'List' : 'Grid'}</span>
+                            <button
+                                className={`${css.tech_view_button} ${listView && css.active}`}
+                                onClick={() => setListView(true)}
+                            >
+                                <Image
+                                    src={
+                                        darkTheme
+                                            ? '/icons/general/list-view.svg'
+                                            : '/icons/general/list-view-black.svg'
+                                    }
+                                    width={20}
+                                    height={20}
+                                    alt="List View Icon"
+                                />
+                            </button>
+                            <button
+                                className={`${css.tech_view_button} ${!listView && css.active}`}
+                                onClick={() => setListView(false)}
+                            >
+                                <Image
+                                    src={
+                                        darkTheme
+                                            ? '/icons/general/grid-view.svg'
+                                            : '/icons/general/grid-view-black.svg'
+                                    }
+                                    width={20}
+                                    height={20}
+                                    alt="Grid View Icon"
+                                />
+                            </button>
+                        </div>
+
+                        <div className={`${css.technologies} ${listView && css.list_view}`}>
                             <Link
                                 href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
                                 target="_blank"
@@ -96,6 +132,7 @@ const Profile = () => {
                                     height={40}
                                     alt="JavaScript Icon"
                                 />
+                                <span className={css.tech_name}>JavaScript</span>
                             </Link>
 
                             <Link href={'https://react.dev'} target="_blank">
@@ -105,6 +142,7 @@ const Profile = () => {
                                     height={40}
                                     alt="ReactJS Icon"
                                 />
+                                <span className={css.tech_name}>ReactJS</span>
                             </Link>
 
                             <Link href={'https://nextjs.org'} target="_blank">
@@ -114,10 +152,11 @@ const Profile = () => {
                                             ? '/icons/tech/next.svg'
                                             : '/icons/tech/next-black.svg'
                                     }
-                                    width={50}
-                                    height={50}
+                                    width={35}
+                                    height={35}
                                     alt="NextJS Icon"
                                 />
+                                <span className={css.tech_name}>NextJS</span>
                             </Link>
 
                             <Link href={'https://sass-lang.com'} target="_blank">
@@ -127,6 +166,7 @@ const Profile = () => {
                                     height={40}
                                     alt="SASS Icon"
                                 />
+                                <span className={css.tech_name}>SCSS</span>
                             </Link>
                             <Link href={'https://tailwindcss.com'} target="_blank">
                                 <Image
@@ -135,6 +175,7 @@ const Profile = () => {
                                     height={40}
                                     alt="TailwindCSS Icon"
                                 />
+                                <span className={css.tech_name}>TailwindCSS</span>
                             </Link>
 
                             <Link href={'https://nodejs.org'} target="_blank">
@@ -144,6 +185,7 @@ const Profile = () => {
                                     height={40}
                                     alt="NodeJS Icon"
                                 />
+                                <span className={css.tech_name}>NodeJS</span>
                             </Link>
 
                             <Link href={'https://www.postgresql.org'} target="_blank">
@@ -153,6 +195,7 @@ const Profile = () => {
                                     height={40}
                                     alt="PostgreSQL Icon"
                                 />
+                                <span className={css.tech_name}>PostgreSQL</span>
                             </Link>
 
                             <Link
@@ -165,6 +208,7 @@ const Profile = () => {
                                     height={40}
                                     alt="Java Icon"
                                 />
+                                <span className={css.tech_name}>Java</span>
                             </Link>
 
                             <Link href={'https://www.python.org'} target="_blank">
@@ -174,6 +218,7 @@ const Profile = () => {
                                     height={40}
                                     alt="Python Icon"
                                 />
+                                <span className={css.tech_name}>Python</span>
                             </Link>
                         </div>
                     </div>
