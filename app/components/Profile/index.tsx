@@ -135,6 +135,16 @@ const Profile = () => {
                                 <span className={css.tech_name}>JavaScript</span>
                             </Link>
 
+                            <Link href={'https://www.typescriptlang.org'} target="_blank">
+                                <Image
+                                    src={'/icons/tech/typescript.svg'}
+                                    width={40}
+                                    height={40}
+                                    alt="TypeScript Icon"
+                                />
+                                <span className={css.tech_name}>TypeScript</span>
+                            </Link>
+
                             <Link href={'https://react.dev'} target="_blank">
                                 <Image
                                     src={'/icons/tech/react.svg'}
