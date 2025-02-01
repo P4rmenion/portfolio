@@ -120,9 +120,14 @@
                         font-size: 20px;
                         font-weight: 700;
                         text-decoration: underline;
+                        text-transform: uppercase;
                         text-underline-offset: 5px;
 
                         @include utils.shrink();
+
+                        &:visited {
+                            all: unset;
+                        }
 
                         &:hover {
                             @include utils.expand();

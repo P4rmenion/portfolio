@@ -84,6 +84,7 @@ const Profile = () => {
 
                     <div className={css.outro}>
                         <span>A dev is only as good as their tech</span>
+                        
                         <div className={css.technologies}>
                             <Link
                                 href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
